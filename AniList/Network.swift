@@ -8,6 +8,9 @@ import Apollo
 import CoreData
 import Foundation
 
+//Thanks to David Choi
+//Apollo GraphQL and SwiftUI - https://www.youtube.com/watch?v=ZOerbQDOAgc
+
 class Network {
   static let shared = Network()
     

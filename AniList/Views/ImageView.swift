@@ -32,6 +32,8 @@ struct ImageView_Previews: PreviewProvider {
     }
 }
 
+// Thanks to SchwiftyUI
+// From : https://www.youtube.com/watch?v=volfJt7mupo - Loading and Caching Images in SwiftUI (Ongoing)
 class ImageFromURL: ObservableObject {
     @Published var image: UIImage?
     var urlString: String?
