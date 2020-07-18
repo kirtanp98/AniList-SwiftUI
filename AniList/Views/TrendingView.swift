@@ -8,15 +8,49 @@
 import SwiftUI
 
 struct TrendingView: View {
-    @State var string = ""
-    @State var num = 1
+    
+    @ObservedObject var topAnime: TopMediaData = TopMediaData(type: .anime)
+    
+    @ObservedObject var topManga: TopMediaData = TopMediaData(type: .manga)
     
     var body: some View {
-        VStack {
-            MediaView(id: num)
-            TextField("hi", text: $string).onChange(of: string) { value in
-                num = Int(value) ?? 1
-            }
+        NavigationView {
+            ScrollView {
+                VStack {
+                    Text("Anime")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHStack {
+                            ForEach(topAnime.mediaList) { media in
+                                
+                                NavigationLink(destination: MediaView(id: media.id)){
+                                    VStack{
+                                        ImageView(url: media.coverImage.url)
+                                        Text(media.title.english)
+                                    }
+                                }
+                                
+                            }
+                        }
+                    }
+                    
+                    Text("Manga")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHStack {
+                            ForEach(topManga.mediaList) { media in
+                                VStack{
+                                    ImageView(url: media.coverImage.url)
+                                    Text(media.title.english)
+                                }
+                            }
+                        }
+                    }
+                }
+            }.navigationTitle("Trending")
         }
     }
 }

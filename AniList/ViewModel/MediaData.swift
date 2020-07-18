@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class MediaData: ObservableObject {
     @Published var media: Media?
     @Published var error: Bool

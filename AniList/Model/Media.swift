@@ -21,13 +21,13 @@ import Foundation
 //value = film.releaseDate ?? ""
 
 
-class Media {
+class Media: Identifiable {
     
     var bannerImage: String?
     var id: Int
     var title: MediaTitle
     var coverImage: MediaCover
-    var duration: Int
+    var duration: Int?
     
     init(media: GetMediaQuery.Data.Medium) {
         bannerImage = media.bannerImage
@@ -35,6 +35,14 @@ class Media {
         duration = media.duration ?? 0
         id = media.id
         title = MediaTitle(title: media.title!)
+    }
+    
+    init(pageMedia: GetTopMediaQuery.Data.Page.Medium) {
+        coverImage = MediaCover(pageCover: pageMedia.coverImage!)
+        id = pageMedia.id
+        title = MediaTitle(pageTitle: pageMedia.title!)
+//        duration = 0
+//        bannerImage = nil
     }
 }
 
@@ -46,6 +54,11 @@ class MediaCover {
     init(cover: GetMediaQuery.Data.Medium.CoverImage) {
         overallColor = cover.color ?? ""
         url = cover.large ?? ""
+    }
+    
+    init(pageCover: GetTopMediaQuery.Data.Page.Medium.CoverImage) {
+        overallColor = pageCover.color ?? ""
+        url = pageCover.large ?? ""
     }
 }
 
@@ -59,5 +72,11 @@ class MediaTitle {
         english = title.english ?? ""
         native = title.native ?? ""
         romaji = title.romaji ?? ""
+    }
+    
+    init(pageTitle: GetTopMediaQuery.Data.Page.Medium.Title) {
+        english = pageTitle.english ?? ""
+        native = pageTitle.native ?? ""
+        romaji = pageTitle.romaji ?? ""
     }
 }

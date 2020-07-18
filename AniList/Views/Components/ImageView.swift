@@ -18,6 +18,7 @@ struct ImageView: View {
     var body: some View {
         if let image = imageLoader.image {
             Image(uiImage: image)
+                .renderingMode(.original)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
         } else {
