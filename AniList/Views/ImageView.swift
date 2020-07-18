@@ -60,7 +60,7 @@ class ImageFromURL: ObservableObject {
     
     func getImageFromResponse(data: Data?, response: URLResponse?, error: Error?) {
         guard error == nil else {
-            print(error)
+            print(error ?? "error")
             return
         }
         

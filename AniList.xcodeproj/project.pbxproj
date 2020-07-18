@@ -11,6 +11,8 @@
 		A02A122724BD1C2F005FB2AE /* query.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A02A122624BD1C2F005FB2AE /* query.graphql */; };
 		A02A122A24BD2129005FB2AE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02A122924BD2129005FB2AE /* API.swift */; };
 		A02A122C24BD235E005FB2AE /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02A122B24BD235E005FB2AE /* Network.swift */; };
+		A068B3F124C3624700377899 /* MediaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A068B3F024C3624700377899 /* MediaData.swift */; };
+		A068B3F424C3632200377899 /* MediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A068B3F324C3632200377899 /* MediaView.swift */; };
 		A08DF3A924BE802E007B01DF /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08DF3A824BE802E007B01DF /* ImageView.swift */; };
 		A0A3153A24BB9136003CE231 /* AniListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A3153924BB9136003CE231 /* AniListApp.swift */; };
 		A0A3153C24BB9136003CE231 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A3153B24BB9136003CE231 /* ContentView.swift */; };
@@ -29,6 +31,8 @@
 		A02A122624BD1C2F005FB2AE /* query.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = query.graphql; sourceTree = "<group>"; };
 		A02A122924BD2129005FB2AE /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		A02A122B24BD235E005FB2AE /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		A068B3F024C3624700377899 /* MediaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaData.swift; sourceTree = "<group>"; };
+		A068B3F324C3632200377899 /* MediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaView.swift; sourceTree = "<group>"; };
 		A08DF3A824BE802E007B01DF /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		A0A3153624BB9136003CE231 /* AniList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AniList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0A3153924BB9136003CE231 /* AniListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AniListApp.swift; sourceTree = "<group>"; };
@@ -62,6 +66,22 @@
 			path = Queries;
 			sourceTree = "<group>";
 		};
+		A068B3EF24C3623600377899 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A068B3F024C3624700377899 /* MediaData.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A068B3F224C362DC00377899 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A068B3F324C3632200377899 /* MediaView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		A0A3152D24BB9136003CE231 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +101,7 @@
 		A0A3153824BB9136003CE231 /* AniList */ = {
 			isa = PBXGroup;
 			children = (
+				A068B3EF24C3623600377899 /* ViewModel */,
 				A02A122924BD2129005FB2AE /* API.swift */,
 				A02A122624BD1C2F005FB2AE /* query.graphql */,
 				A02A122524BD1C15005FB2AE /* Queries */,
@@ -107,6 +128,7 @@
 		A0A3155524BBC572003CE231 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A068B3F224C362DC00377899 /* Components */,
 				A0A3153B24BB9136003CE231 /* ContentView.swift */,
 				A0A3155624BBC583003CE231 /* TrendingView.swift */,
 				A08DF3A824BE802E007B01DF /* ImageView.swift */,
@@ -218,11 +240,13 @@
 			files = (
 				A02A122C24BD235E005FB2AE /* Network.swift in Sources */,
 				A0A3155724BBC583003CE231 /* TrendingView.swift in Sources */,
+				A068B3F124C3624700377899 /* MediaData.swift in Sources */,
 				A01A75FD24BD27B200D4C493 /* Media.swift in Sources */,
 				A0A3153C24BB9136003CE231 /* ContentView.swift in Sources */,
 				A02A122A24BD2129005FB2AE /* API.swift in Sources */,
 				A08DF3A924BE802E007B01DF /* ImageView.swift in Sources */,
 				A0A3153A24BB9136003CE231 /* AniListApp.swift in Sources */,
+				A068B3F424C3632200377899 /* MediaView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
