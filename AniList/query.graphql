@@ -18,3 +18,31 @@ query getMedia($id: Int) {
     }
 }
 
+query getTopMedia($page: Int, $type: MediaType){
+  Page (page: $page, perPage: 50) {
+       pageInfo {
+       total
+       currentPage
+       lastPage
+       hasNextPage
+       perPage
+         }
+    
+    media(sort: SCORE_DESC, type: $type) {
+      id
+      title {
+        english
+        native
+        romaji
+      }
+      
+      # description
+            coverImage{
+        large
+        color
+      }
+      popularity
+    }
+    
+  }
+}

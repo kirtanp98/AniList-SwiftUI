@@ -77,7 +77,7 @@ class MediaData: ObservableObject {
 //        }
 //    }
     func loadData() {
-        Network.shared.apollo.fetch(query: GetMediaQuery(id: 1337)) { result in
+        Network.shared.apollo.fetch(query: GetMediaQuery(id: 1)) { result in
             switch result {
             case .success(let graphQLResult):
                 self.media = Media(media: graphQLResult.data!.media!)
