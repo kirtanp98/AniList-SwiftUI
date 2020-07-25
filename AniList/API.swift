@@ -382,7 +382,7 @@ public final class GetTopMediaQuery: GraphQLQuery {
           hasNextPage
           perPage
         }
-        media(sort: SCORE_DESC, type: $type) {
+        media(sort: POPULARITY_DESC, type: $type) {
           __typename
           id
           title {
@@ -451,7 +451,7 @@ public final class GetTopMediaQuery: GraphQLQuery {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("pageInfo", type: .object(PageInfo.selections)),
-          GraphQLField("media", arguments: ["sort": "SCORE_DESC", "type": GraphQLVariable("type")], type: .list(.object(Medium.selections))),
+          GraphQLField("media", arguments: ["sort": "POPULARITY_DESC", "type": GraphQLVariable("type")], type: .list(.object(Medium.selections))),
         ]
       }
 

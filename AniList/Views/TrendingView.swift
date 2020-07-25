@@ -10,41 +10,53 @@ import SwiftUI
 struct TrendingView: View {
     
     @ObservedObject var topAnime: TopMediaData = TopMediaData(type: .anime)
-    
     @ObservedObject var topManga: TopMediaData = TopMediaData(type: .manga)
+    @State var topAnimeIsExpanded: Bool = true
     
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack {
-                    Text("Anime")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
+                    HStack {
+                        Text("Top Anime")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .padding()
+                        Spacer()
+                    }
+                    
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHStack {
                             ForEach(topAnime.mediaList) { media in
-                                
-                                NavigationLink(destination: MediaView(id: media.id)){
-                                    VStack{
-                                        ImageView(url: media.coverImage.url)
-                                        Text(media.title.english)
+                                VStack {
+                                    NavigationLink(destination: MediaView(id: media.id)){
+                                        CoverImageView(url: media.coverImage.url)
                                     }
-                                }
-                                
+                                    Text(media.title.romaji)
+                                        .multilineTextAlignment(.leading)
+                                        .frame(width: 160)
+                                    Spacer()
+                                }.padding()
                             }
                         }
                     }
                     
-                    Text("Manga")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
+                    HStack {
+                        Text("Top Manga")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .padding()
+                        Spacer()
+                    }
                     
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHStack {
                             ForEach(topManga.mediaList) { media in
-                                VStack{
-                                    ImageView(url: media.coverImage.url)
-                                    Text(media.title.english)
+                                NavigationLink(destination: MediaView(id: media.id)){
+                                    VStack{
+                                        CoverImageView(url: media.coverImage.url)
+                                        Text(media.title.romaji)
+                                    }
                                 }
                             }
                         }

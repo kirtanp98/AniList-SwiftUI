@@ -28,7 +28,7 @@ query getTopMedia($page: Int, $type: MediaType){
        perPage
          }
     
-    media(sort: SCORE_DESC, type: $type) {
+    media(sort: POPULARITY_DESC, type: $type) {
       id
       title {
         english

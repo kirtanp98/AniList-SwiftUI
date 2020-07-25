@@ -1,37 +1,13 @@
 //
-//  ImageView.swift
+//  ImageFromURL.swift
 //  AniList
 //
-//  Created by Kirtan Patel on 7/14/20.
+//  Created by Kirtan Patel on 7/25/20.
 //
 
+import Foundation
+import UIKit
 import SwiftUI
-
-struct ImageView: View {
-    
-    @ObservedObject var imageLoader: ImageFromURL
-    
-    init(url: String?) {
-        imageLoader = ImageFromURL(url: url)
-    }
-    
-    var body: some View {
-        if let image = imageLoader.image {
-            Image(uiImage: image)
-                .renderingMode(.original)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-        } else {
-            ProgressView("Loading")
-        }
-    }
-}
-
-struct ImageView_Previews: PreviewProvider {
-    static var previews: some View {
-        ImageView(url: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/1-T3PJUjFJyRwg.jpg")
-    }
-}
 
 // Thanks to SchwiftyUI
 // From : https://www.youtube.com/watch?v=volfJt7mupo - Loading and Caching Images in SwiftUI (Ongoing)
