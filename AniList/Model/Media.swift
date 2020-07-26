@@ -53,7 +53,7 @@ class MediaCover {
     
     init(cover: GetMediaQuery.Data.Medium.CoverImage) {
         overallColor = cover.color ?? ""
-        url = cover.large ?? ""
+        url = cover.extraLarge ?? ""
     }
     
     init(pageCover: GetTopMediaQuery.Data.Page.Medium.CoverImage) {

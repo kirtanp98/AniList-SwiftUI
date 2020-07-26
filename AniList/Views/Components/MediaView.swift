@@ -16,37 +16,42 @@ struct MediaView: View {
     }
     
     var body: some View {
-        VStack {
-            ScrollView {
-                VStack {
-                    if let media = data.media {
-                        VStack {
-                            if let media = data.media {
-                                if let bannerImage = media.bannerImage {
-                                        BannerImageView(url: bannerImage)
-                                            .frame(width: 500)
-                                } else {
-                                    Rectangle()
-                                        .frame(maxWidth: .infinity)
-                                        .frame(height: 50)
-                                        .foregroundColor(Color(hex: media.coverImage.overallColor))
-                                }
-                            }
-                        }
-                        HStack{
-                            CoverImageView(url: media.coverImage.url)
-                            VStack {
-                                Text(media.title.english)
-                                Text(media.title.native)
-                                Text(media.title.romaji)
-                            }
-                        }
+        ScrollView {
+            VStack {
+                if let media = data.media {
+                    if let bannerImage = media.bannerImage {
+                        BannerImageView(url: bannerImage)
+                            .frame(width: 500)
                     } else {
-                        ProgressView("loading")
+                        Rectangle()
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 200)
+                            .foregroundColor(Color(hexString: media.coverImage.overallColor))
                     }
+                }
+                Spacer()
+            }.animation(.default)
+            VStack {
+                if let media = data.media {
+                    HStack{
+                        CoverImageView(url: media.coverImage.url)
+                            .animation(.default)
+                        VStack {
+                            Text(media.title.english)
+                            Text(media.title.native)
+                            Text(media.title.romaji)
+                            Rectangle().frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                .foregroundColor(Color(hexString: media.coverImage.overallColor))
+                        }
+                    }.frame(maxWidth: .infinity)
+                } else {
+                    ProgressView("loading")
                 }
             }
         }.navigationBarTitle("", displayMode: .inline)
+        .onAppear{
+            print(data.media?.coverImage.overallColor)
+        }
     }
 }
 

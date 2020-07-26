@@ -10,7 +10,7 @@ query getMedia($id: Int) {
         bannerImage
         coverImage {
             color
-            large
+            extraLarge
         }
         tags {
             id
@@ -37,7 +37,7 @@ query getTopMedia($page: Int, $type: MediaType){
       }
       
       # description
-            coverImage{
+      coverImage{
         large
         color
       }

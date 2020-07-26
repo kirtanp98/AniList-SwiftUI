@@ -23,8 +23,16 @@ struct CoverImageView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(height: 240)
                 .cornerRadius(10.0)
+                .shadow(radius: 5)
         } else {
-            ProgressView("Loading")
+            ZStack {
+                ProgressView("Loading")
+            }
+            .frame(width: 168, height: 240)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.gray, lineWidth: 2)
+            )
         }
     }
 }
