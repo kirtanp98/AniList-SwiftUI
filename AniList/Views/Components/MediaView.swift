@@ -21,31 +21,8 @@ struct MediaView: View {
             VStack {
                 VStack {
                     if let media = data.media {
-                        if let bannerImage = media.bannerImage {
-                            BannerImageView(url: bannerImage)
-                        } else {
-                            Rectangle()
-                                .frame(maxWidth: .infinity)
-                                .frame(height: 120)
-                                .foregroundColor(Color(hexString: media.coverImage.overallColor))
-                        }
-                    }
-//                    Spacer()
-                }.animation(.default)
-                VStack {
-                    if let media = data.media {
-                        Text(media.title.romaji)
-                            .font(.title)
-                            .bold()
-                        HStack{
-                            CoverImageView(url: media.coverImage.url)
+                        CoverImageView(url: media.coverImage.url)
                                 .animation(.default)
-                            Spacer()
-                            
-                            Button(action: {}) {
-                                Text("Add to List")
-                            }
-                        }.padding()
 
                         DisclosureGroup("Description") {
                             Text(media.cleanDescription ?? "")

@@ -31,6 +31,8 @@ struct MediaScrollView: View {
             }.animation(.default)
         } else {
             ProgressView("Loading")
+                .frame(maxWidth: .infinity)
+                .frame(height: 240)
                 .animation(.default)
         }
     }

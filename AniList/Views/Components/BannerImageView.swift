@@ -21,6 +21,7 @@ struct BannerImageView: View {
                 .renderingMode(.original)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
+                .frame(height: 120)
         } else {
             ProgressView("Loading")
         }
