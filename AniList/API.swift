@@ -61,6 +61,7 @@ public final class GetMediaQuery: GraphQLQuery {
           english
           native
         }
+        description
         duration
         bannerImage
         coverImage {
@@ -125,6 +126,7 @@ public final class GetMediaQuery: GraphQLQuery {
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(Int.self))),
           GraphQLField("title", type: .object(Title.selections)),
+          GraphQLField("description", type: .scalar(String.self)),
           GraphQLField("duration", type: .scalar(Int.self)),
           GraphQLField("bannerImage", type: .scalar(String.self)),
           GraphQLField("coverImage", type: .object(CoverImage.selections)),
@@ -138,8 +140,8 @@ public final class GetMediaQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(id: Int, title: Title? = nil, duration: Int? = nil, bannerImage: String? = nil, coverImage: CoverImage? = nil, tags: [Tag?]? = nil) {
-        self.init(unsafeResultMap: ["__typename": "Media", "id": id, "title": title.flatMap { (value: Title) -> ResultMap in value.resultMap }, "duration": duration, "bannerImage": bannerImage, "coverImage": coverImage.flatMap { (value: CoverImage) -> ResultMap in value.resultMap }, "tags": tags.flatMap { (value: [Tag?]) -> [ResultMap?] in value.map { (value: Tag?) -> ResultMap? in value.flatMap { (value: Tag) -> ResultMap in value.resultMap } } }])
+      public init(id: Int, title: Title? = nil, description: String? = nil, duration: Int? = nil, bannerImage: String? = nil, coverImage: CoverImage? = nil, tags: [Tag?]? = nil) {
+        self.init(unsafeResultMap: ["__typename": "Media", "id": id, "title": title.flatMap { (value: Title) -> ResultMap in value.resultMap }, "description": description, "duration": duration, "bannerImage": bannerImage, "coverImage": coverImage.flatMap { (value: CoverImage) -> ResultMap in value.resultMap }, "tags": tags.flatMap { (value: [Tag?]) -> [ResultMap?] in value.map { (value: Tag?) -> ResultMap? in value.flatMap { (value: Tag) -> ResultMap in value.resultMap } } }])
       }
 
       public var __typename: String {
@@ -168,6 +170,16 @@ public final class GetMediaQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue?.resultMap, forKey: "title")
+        }
+      }
+
+      /// Short description of the media's story and characters
+      public var description: String? {
+        get {
+          return resultMap["description"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "description")
         }
       }
 

@@ -19,7 +19,7 @@ struct MediaScrollView: View {
                         VStack {
                             NavigationLink(destination: MediaView(id: media.id)){
                                 CoverImageView(url: media.coverImage.url)
-//                                    .shadow(color: Color(hexString: media.coverImage.overallColor), radius: 7)
+                                    .shadow(color: Color(hexString: media.coverImage.overallColor), radius: 7)
                             }
                             Text(media.title.romaji)
                                 .multilineTextAlignment(.leading)

@@ -10,6 +10,7 @@ import SwiftUI
 struct MediaView: View {
     
     @ObservedObject var data: MediaData
+    @State var accentColor: Color = .purple
     
     init(id: Int) {
         data = MediaData(id: id)
@@ -18,40 +19,50 @@ struct MediaView: View {
     var body: some View {
         ScrollView {
             VStack {
-                if let media = data.media {
-                    if let bannerImage = media.bannerImage {
-                        BannerImageView(url: bannerImage)
-                            .frame(width: 500)
+                VStack {
+                    if let media = data.media {
+                        if let bannerImage = media.bannerImage {
+                            BannerImageView(url: bannerImage)
+                        } else {
+                            Rectangle()
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 120)
+                                .foregroundColor(Color(hexString: media.coverImage.overallColor))
+                        }
+                    }
+//                    Spacer()
+                }.animation(.default)
+                VStack {
+                    if let media = data.media {
+                        Text(media.title.romaji)
+                            .font(.title)
+                            .bold()
+                        HStack{
+                            CoverImageView(url: media.coverImage.url)
+                                .animation(.default)
+                            Spacer()
+                            
+                            Button(action: {}) {
+                                Text("Add to List")
+                            }
+                        }.padding()
+
+                        DisclosureGroup("Description") {
+                            Text(media.cleanDescription ?? "")
+                                .padding()
+                        }
+                        .font(.subheadline)
+                        .padding()
                     } else {
-                        Rectangle()
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 200)
-                            .foregroundColor(Color(hexString: media.coverImage.overallColor))
+                        ProgressView("loading")
                     }
                 }
                 Spacer()
-            }.animation(.default)
-            VStack {
-                if let media = data.media {
-                    HStack{
-                        CoverImageView(url: media.coverImage.url)
-                            .animation(.default)
-                        VStack {
-                            Text(media.title.english)
-                            Text(media.title.native)
-                            Text(media.title.romaji)
-                            Rectangle().frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                .foregroundColor(Color(hexString: media.coverImage.overallColor))
-                        }
-                    }.frame(maxWidth: .infinity)
-                } else {
-                    ProgressView("loading")
-                }
             }
-        }.navigationBarTitle("", displayMode: .inline)
-        .onAppear{
-            print(data.media?.coverImage.overallColor)
         }
+        .navigationBarTitle(data.media?.title.romaji ?? "oops")
+        .accentColor(Color(hexString: (data.media?.coverImage.overallColor)!))
+
     }
 }
 

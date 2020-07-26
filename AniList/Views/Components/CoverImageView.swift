@@ -16,23 +16,24 @@ struct CoverImageView: View {
     }
     
     var body: some View {
-        if let image = imageLoader.image {
-            Image(uiImage: image)
-                .renderingMode(.original)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 240)
-                .cornerRadius(10.0)
-                .shadow(radius: 5)
-        } else {
-            ZStack {
-                ProgressView("Loading")
+        Group {
+            if let image = imageLoader.image {
+                Image(uiImage: image)
+                    .renderingMode(.original)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 240)
+                    .cornerRadius(10.0)
+            } else {
+                ZStack {
+                    ProgressView("Loading")
+                }
+                .frame(width: 168, height: 240)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.gray, lineWidth: 2)
+                )
             }
-            .frame(width: 168, height: 240)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.gray, lineWidth: 2)
-            )
         }
     }
 }

@@ -28,6 +28,14 @@ class Media: Identifiable {
     var title: MediaTitle
     var coverImage: MediaCover
     var duration: Int?
+    var description: String?
+    var cleanDescription: String? {
+        if let description = description {
+            return description.replacingOccurrences(of: "<br>", with: "")
+        } else {
+            return nil
+        }
+    }
     
     init(media: GetMediaQuery.Data.Medium) {
         bannerImage = media.bannerImage
@@ -35,6 +43,7 @@ class Media: Identifiable {
         duration = media.duration ?? 0
         id = media.id
         title = MediaTitle(title: media.title!)
+        description = media.description
     }
     
     init(pageMedia: GetTopMediaQuery.Data.Page.Medium) {
