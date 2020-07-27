@@ -17,7 +17,7 @@ struct MediaScrollView: View {
                 LazyHStack {
                     ForEach(topMedia.mediaList) { media in
                         VStack {
-                            NavigationLink(destination: MediaView(id: media.id)){
+                            NavigationLink(destination: MediaView(id: media.id, type: topMedia.mediaType)){
                                 CoverImageView(url: media.coverImage.url)
                                     .shadow(color: Color(hexString: media.coverImage.overallColor), radius: 7)
                             }

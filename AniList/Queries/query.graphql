@@ -1,26 +1,4 @@
-query getMedia($id: Int) {
-      Media(id: $id) {
-        id
-        title {
-            romaji
-            english
-            native
-        }
-        description
-        duration
-        bannerImage
-        coverImage {
-            color
-            extraLarge
-        }
-        tags {
-            id
-        }
-    }
-}
-
-
-query getMediaAlt($id: Int, $type: MediaType, $isAdult: Boolean) {
+query getMedia($id: Int, $type: MediaType, $isAdult: Boolean) {
   Media(id: $id, type: $type, isAdult: $isAdult) {
     id
     title {
@@ -30,8 +8,8 @@ query getMediaAlt($id: Int, $type: MediaType, $isAdult: Boolean) {
       native
     }
     coverImage {
+      color
       extraLarge
-      large
     }
     bannerImage
     startDate {

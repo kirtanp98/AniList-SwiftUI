@@ -12,8 +12,8 @@ struct MediaView: View {
     @ObservedObject var data: MediaData
     @State var accentColor: Color = .purple
     
-    init(id: Int) {
-        data = MediaData(id: id)
+    init(id: Int, type: MediaType) {
+        data = MediaData(id: id, type: type)
     }
     
     var body: some View {
@@ -21,8 +21,15 @@ struct MediaView: View {
             VStack {
                 VStack {
                     if let media = data.media {
-                        CoverImageView(url: media.coverImage.url)
+                        ZStack {
+                            Rectangle()
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 280)
+                                .foregroundColor(Color(hexString: (data.media?.coverImage.overallColor)!))
+                            CoverImageView(url: media.coverImage.url)
                                 .animation(.default)
+                                .shadow(radius: 8)
+                        }
 
                         DisclosureGroup("Description") {
                             Text(media.cleanDescription ?? "")
@@ -45,6 +52,6 @@ struct MediaView: View {
 
 struct MediaView_Previews: PreviewProvider {
     static var previews: some View {
-        MediaView(id: 0)
+        MediaView(id: 0, type: .anime)
     }
 }

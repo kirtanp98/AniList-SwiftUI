@@ -11,17 +11,19 @@ class MediaData: ObservableObject {
     @Published var media: Media?
     @Published var error: Bool
     var mediaId: Int
+    var mediaType: MediaType
     
-    init(id: Int) {
+    init(id: Int, type: MediaType) {
         error = false
         media = nil
         mediaId = id
+        mediaType = type
         print("running loadData")
         loadData()
     }
     
     func loadData() {
-        Network.shared.apollo.fetch(query: GetMediaQuery(id: mediaId)) { result in
+        Network.shared.apollo.fetch(query: GetMediaQuery(id: mediaId, type: mediaType, isAdult: false)) { result in
             switch result {
             case .success(let graphQLResult):
                 self.media = Media(media: graphQLResult.data!.media!)
