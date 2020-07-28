@@ -29,6 +29,7 @@
 		A0CD190124CCADC80008AFF6 /* ImageFromURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CD190024CCADC80008AFF6 /* ImageFromURL.swift */; };
 		A0CD190324CCAE160008AFF6 /* BannerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CD190224CCAE160008AFF6 /* BannerImageView.swift */; };
 		A0CD190624CCB7B00008AFF6 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CD190524CCB7B00008AFF6 /* ColorExtension.swift */; };
+		A0EC1BA024D0E0A500645FE0 /* MediaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EC1B9F24D0E0A500645FE0 /* MediaListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		A0CD190024CCADC80008AFF6 /* ImageFromURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFromURL.swift; sourceTree = "<group>"; };
 		A0CD190224CCAE160008AFF6 /* BannerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerImageView.swift; sourceTree = "<group>"; };
 		A0CD190524CCB7B00008AFF6 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		A0EC1B9F24D0E0A500645FE0 /* MediaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				A068B3F324C3632200377899 /* MediaView.swift */,
 				A0CD190224CCAE160008AFF6 /* BannerImageView.swift */,
 				A066E8CB24CDD6AA00D050E9 /* MediaScrollView.swift */,
+				A0EC1B9F24D0E0A500645FE0 /* MediaListView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -152,9 +155,9 @@
 		A0A3155524BBC572003CE231 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A0EC1B9E24D0DEEE00645FE0 /* Trending */,
 				A068B3F224C362DC00377899 /* Components */,
 				A0A3153B24BB9136003CE231 /* ContentView.swift */,
-				A0A3155624BBC583003CE231 /* TrendingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,6 +168,14 @@
 				A0CD190524CCB7B00008AFF6 /* ColorExtension.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		A0EC1B9E24D0DEEE00645FE0 /* Trending */ = {
+			isa = PBXGroup;
+			children = (
+				A0A3155624BBC583003CE231 /* TrendingView.swift */,
+			);
+			path = Trending;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0CD190324CCAE160008AFF6 /* BannerImageView.swift in Sources */,
+				A0EC1BA024D0E0A500645FE0 /* MediaListView.swift in Sources */,
 				A02A122C24BD235E005FB2AE /* Network.swift in Sources */,
 				A0A3155724BBC583003CE231 /* TrendingView.swift in Sources */,
 				A068B3F124C3624700377899 /* MediaData.swift in Sources */,

@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct TrendingView: View {
-    
-    @ObservedObject var topManga: TopMediaData = TopMediaData(type: .manga)
-    
+        
     var body: some View {
         NavigationView {
             ScrollView {

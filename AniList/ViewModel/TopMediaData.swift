@@ -11,27 +11,36 @@ class TopMediaData: ObservableObject {
     @Published var mediaList: [Media]
     @Published var error: Bool
     var mediaType: MediaType
+    var page: Int
     
     init(type: MediaType) {
         error = false
         mediaList = []
         mediaType = type
+        page = 1
         print("running loadData")
         loadData()
     }
     
     func loadData() {
-        Network.shared.apollo.fetch(query: GetTopMediaQuery(page: 1, type: mediaType)) { result in
+        var tempList:[Media] = []
+        Network.shared.apollo.fetch(query: GetTopMediaQuery(page: page, type: mediaType)) { result in
             switch result {
             case .success(let graphQLResult):
                 for media in graphQLResult.data!.page!.media! {
-                    self.mediaList.append(Media(pageMedia: media!))
+                    tempList.append(Media(pageMedia: media!))
                 }
+                self.mediaList.append(contentsOf: tempList)
             case .failure(let error):
                 self.error = true
                 print("Failure! Error: \(error)")
             }
             
         }
+    }
+    
+    func getAnotherPageDate() {
+        page += 1
+        loadData()
     }
 }

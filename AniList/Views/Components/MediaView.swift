@@ -45,7 +45,7 @@ struct MediaView: View {
             }
         }
         .navigationBarTitle(data.media?.title.romaji ?? "oops")
-        .accentColor(Color(hexString: (data.media?.coverImage.overallColor)!))
+        .accentColor(Color(hexString: data.media?.coverImage.overallColor ?? "#000000"))
 
     }
 }

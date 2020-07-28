@@ -27,6 +27,14 @@ struct MediaScrollView: View {
                             Spacer()
                         }.padding()
                     }
+                    
+                    NavigationLink(destination: MediaListView(name: "Top Anime")) {
+                        Image(systemName: "arrow.right.circle")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 80)
+                            .padding(.trailing)
+                    }
                 }
             }.animation(.default)
         } else {

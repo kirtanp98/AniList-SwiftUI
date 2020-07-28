@@ -4309,7 +4309,7 @@ public final class GetTopMediaQuery: GraphQLQuery {
   public let operationDefinition: String =
     """
     query getTopMedia($page: Int, $type: MediaType) {
-      Page(page: $page, perPage: 25) {
+      Page(page: $page, perPage: 30) {
         __typename
         pageInfo {
           __typename
@@ -4358,7 +4358,7 @@ public final class GetTopMediaQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("Page", arguments: ["page": GraphQLVariable("page"), "perPage": 25], type: .object(Page.selections)),
+        GraphQLField("Page", arguments: ["page": GraphQLVariable("page"), "perPage": 30], type: .object(Page.selections)),
       ]
     }
 

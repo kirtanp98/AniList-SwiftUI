@@ -21,7 +21,7 @@ import Foundation
 //value = film.releaseDate ?? ""
 
 
-class Media: Identifiable {
+class Media: Identifiable, Equatable {
     
     var bannerImage: String?
     var id: Int
@@ -53,6 +53,11 @@ class Media: Identifiable {
 //        duration = 0
 //        bannerImage = nil
     }
+    
+    static func == (lhs: Media, rhs: Media) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
 }
 
 class MediaCover {
