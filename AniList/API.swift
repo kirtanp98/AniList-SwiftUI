@@ -813,7 +813,7 @@ public final class GetMediaQuery: GraphQLQuery {
               id
               title {
                 __typename
-                userPreferred
+                romaji
               }
               format
               type
@@ -2088,7 +2088,7 @@ public final class GetMediaQuery: GraphQLQuery {
               public static var selections: [GraphQLSelection] {
                 return [
                   GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-                  GraphQLField("userPreferred", type: .scalar(String.self)),
+                  GraphQLField("romaji", type: .scalar(String.self)),
                 ]
               }
 
@@ -2098,8 +2098,8 @@ public final class GetMediaQuery: GraphQLQuery {
                 self.resultMap = unsafeResultMap
               }
 
-              public init(userPreferred: String? = nil) {
-                self.init(unsafeResultMap: ["__typename": "MediaTitle", "userPreferred": userPreferred])
+              public init(romaji: String? = nil) {
+                self.init(unsafeResultMap: ["__typename": "MediaTitle", "romaji": romaji])
               }
 
               public var __typename: String {
@@ -2111,13 +2111,13 @@ public final class GetMediaQuery: GraphQLQuery {
                 }
               }
 
-              /// The currently authenticated users preferred title language. Default romaji for non-authenticated
-              public var userPreferred: String? {
+              /// The romanization of the native language title
+              public var romaji: String? {
                 get {
-                  return resultMap["userPreferred"] as? String
+                  return resultMap["romaji"] as? String
                 }
                 set {
-                  resultMap.updateValue(newValue, forKey: "userPreferred")
+                  resultMap.updateValue(newValue, forKey: "romaji")
                 }
               }
             }

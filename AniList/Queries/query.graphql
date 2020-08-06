@@ -58,7 +58,7 @@ query getMedia($id: Int, $type: MediaType, $isAdult: Boolean) {
         node {
           id
           title {
-            userPreferred
+            romaji
           }
           format
           type

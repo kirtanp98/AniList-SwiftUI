@@ -31,12 +31,57 @@ struct MediaView: View {
                                 .shadow(radius: 8)
                         }
 
+                        HStack {
+                            VStack(alignment: .center) {
+                                Text("Popularity")
+                                Text("\(media.popularity ?? 0)")
+                            }
+                            VStack(alignment: .center) {
+                                Text("Average Score")
+                                Text("\(media.averageScore ?? 0)")
+                            }
+                            VStack(alignment: .center) {
+                                Text("Mean Score")
+                                Text("\(media.meanScore ?? 0)")
+                            }
+                            VStack(alignment: .center) {
+                                Text("Favorites")
+                                Text("\(media.favorites ?? 0)")
+                            }
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                       
+                        Divider()
+                        
                         DisclosureGroup("Description") {
                             Text(media.cleanDescription ?? "")
                                 .padding()
                         }
                         .font(.subheadline)
                         .padding()
+                        VStack {
+                            HStack {
+                                Text("Relations")
+                                    .padding()
+                                Spacer()
+                            }
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack {
+                                    ForEach(media.relations!.edges) { edge in
+                                        NavigationLink(destination: MediaView(id: edge.node.id, type: edge.node.type)){
+                                            VStack {
+                                                CoverImageView(url: edge.node.coverImage.url)
+                                                Text(edge.type)
+                                                Text(edge.node.title.romaji)
+                                                    .multilineTextAlignment(.leading)
+                                                    .frame(width: 160)
+                                            }.padding()
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     } else {
                         ProgressView("loading")
                     }
