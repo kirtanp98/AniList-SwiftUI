@@ -10,7 +10,12 @@ import SwiftUI
 struct MediaListView: View {
     
     @ObservedObject var topMedia: TopMediaData = TopMediaData(type: .anime)
-    @State var name: String
+    @State var name: String = ""
+    
+    init(name: String, type: MediaType) {
+        self.topMedia = TopMediaData(type: type)
+        self.name = name
+    }
     
     var body: some View {
         List {
@@ -42,6 +47,6 @@ struct MediaListView: View {
 
 struct MediaListView_Previews: PreviewProvider {
     static var previews: some View {
-        MediaListView(topMedia: TopMediaData(type: .anime), name: "Top Anime")
+        MediaListView(name: "Top Anime", type: .anime)
     }
 }

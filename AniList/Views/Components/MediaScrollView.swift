@@ -16,20 +16,20 @@ struct MediaScrollView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack {
                     ForEach(topMedia.mediaList) { media in
-                        VStack {
+                        VStack(alignment: .center) {
                             NavigationLink(destination: MediaView(id: media.id, type: topMedia.mediaType)){
                                 CoverImageView(url: media.coverImage.url)
-                                    .shadow(color: Color(hexString: media.coverImage.overallColor), radius: 7)
                             }
                             Text(media.title.romaji)
                                 .multilineTextAlignment(.leading)
                                 .frame(width: 160)
                             Spacer()
-                        }.padding()
+                        }
+                        .frame(width: 175)
                     }
                     
-                    NavigationLink(destination: MediaListView(name: "Top Anime")) {
-                        Image(systemName: "arrow.right.circle")
+                    NavigationLink(destination: MediaGridView()) {
+                        Image(systemName: "arrow.right")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 80)

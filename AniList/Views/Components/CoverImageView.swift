@@ -6,25 +6,42 @@
 //
 
 import SwiftUI
+import KingfisherSwiftUI
 
 struct CoverImageView: View {
     
-    @ObservedObject var imageLoader: ImageFromURL
+    //    @ObservedObject var imageLoader: ImageFromURL
+    @State var url: String
     
-    init(url: String?) {
-        imageLoader = ImageFromURL(url: url)
-    }
+    //    init(url: String?) {
+    //        imageLoader = ImageFromURL(url: url)
+    //    }
     
     var body: some View {
-        Group {
-            if let image = imageLoader.image {
-                Image(uiImage: image)
-                    .renderingMode(.original)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(height: 240)
-                    .cornerRadius(10.0)
-            } else {
+        //        Group {
+        //            if let image = imageLoader.image {
+        //                KFImage(url)
+        //                    .resizable()
+        ////                Image(uiImage: image)
+        ////                    .renderingMode(.original)
+        ////                    .resizable()
+        ////                    .aspectRatio(contentMode: .fit)
+        ////                    .frame(height: 240)
+        ////                    .cornerRadius(10.0)
+        //            } else {
+        //                ZStack {
+        //                    ProgressView("Loading")
+        //                }
+        //                .frame(width: 168, height: 240)
+        //                .overlay(
+        //                    RoundedRectangle(cornerRadius: 10)
+        //                        .stroke(Color.gray, lineWidth: 2)
+        //                )
+        //            }
+        //        }
+        
+        KFImage(URL(string: url), options: [.transition(.fade(0.2))])
+            .placeholder {
                 ZStack {
                     ProgressView("Loading")
                 }
@@ -34,7 +51,12 @@ struct CoverImageView: View {
                         .stroke(Color.gray, lineWidth: 2)
                 )
             }
-        }
+            .cancelOnDisappear(true)
+            .renderingMode(.original)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(height: 240)
+            .cornerRadius(10.0)
     }
 }
 

@@ -30,7 +30,9 @@ class TopMediaData: ObservableObject {
                 for media in graphQLResult.data!.page!.media! {
                     tempList.append(Media(pageMedia: media!))
                 }
-                self.mediaList.append(contentsOf: tempList)
+                DispatchQueue.main.async {
+                    self.mediaList.append(contentsOf: tempList)
+                }
             case .failure(let error):
                 self.error = true
                 print("Failure! Error: \(error)")

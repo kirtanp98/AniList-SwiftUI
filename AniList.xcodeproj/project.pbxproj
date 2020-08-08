@@ -26,6 +26,8 @@
 		A0A3155024BB92F7003CE231 /* ApolloCore in Frameworks */ = {isa = PBXBuildFile; productRef = A0A3154F24BB92F7003CE231 /* ApolloCore */; };
 		A0A3155424BB93FE003CE231 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = A0A3155324BB93FE003CE231 /* schema.json */; };
 		A0A3155724BBC583003CE231 /* TrendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A3155624BBC583003CE231 /* TrendingView.swift */; };
+		A0A8AA2924DE2832001CBB60 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = A0A8AA2824DE2832001CBB60 /* KingfisherSwiftUI */; };
+		A0B5DC9A24DDAE50006CAAA3 /* MediaGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B5DC9924DDAE50006CAAA3 /* MediaGridView.swift */; };
 		A0CD190124CCADC80008AFF6 /* ImageFromURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CD190024CCADC80008AFF6 /* ImageFromURL.swift */; };
 		A0CD190324CCAE160008AFF6 /* BannerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CD190224CCAE160008AFF6 /* BannerImageView.swift */; };
 		A0CD190624CCB7B00008AFF6 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CD190524CCB7B00008AFF6 /* ColorExtension.swift */; };
@@ -50,6 +52,7 @@
 		A0A3154224BB9138003CE231 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0A3155324BB93FE003CE231 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		A0A3155624BBC583003CE231 /* TrendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingView.swift; sourceTree = "<group>"; };
+		A0B5DC9924DDAE50006CAAA3 /* MediaGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaGridView.swift; sourceTree = "<group>"; };
 		A0CD190024CCADC80008AFF6 /* ImageFromURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFromURL.swift; sourceTree = "<group>"; };
 		A0CD190224CCAE160008AFF6 /* BannerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerImageView.swift; sourceTree = "<group>"; };
 		A0CD190524CCB7B00008AFF6 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -65,6 +68,7 @@
 				A0A3154E24BB92F7003CE231 /* Apollo in Frameworks */,
 				A0A3155024BB92F7003CE231 /* ApolloCore in Frameworks */,
 				A0A3154C24BB92F7003CE231 /* ApolloWebSocket in Frameworks */,
+				A0A8AA2924DE2832001CBB60 /* KingfisherSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +109,7 @@
 				A0CD190224CCAE160008AFF6 /* BannerImageView.swift */,
 				A066E8CB24CDD6AA00D050E9 /* MediaScrollView.swift */,
 				A0EC1B9F24D0E0A500645FE0 /* MediaListView.swift */,
+				A0B5DC9924DDAE50006CAAA3 /* MediaGridView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -200,6 +205,7 @@
 				A0A3154B24BB92F7003CE231 /* ApolloWebSocket */,
 				A0A3154D24BB92F7003CE231 /* Apollo */,
 				A0A3154F24BB92F7003CE231 /* ApolloCore */,
+				A0A8AA2824DE2832001CBB60 /* KingfisherSwiftUI */,
 			);
 			productName = AniList;
 			productReference = A0A3153624BB9136003CE231 /* AniList.app */;
@@ -230,6 +236,7 @@
 			mainGroup = A0A3152D24BB9136003CE231;
 			packageReferences = (
 				A0A3154824BB92F7003CE231 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+				A0A8AA2724DE2831001CBB60 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = A0A3153724BB9136003CE231 /* Products */;
 			projectDirPath = "";
@@ -295,6 +302,7 @@
 				A0A3153A24BB9136003CE231 /* AniListApp.swift in Sources */,
 				A068B3F424C3632200377899 /* MediaView.swift in Sources */,
 				A0CD190624CCB7B00008AFF6 /* ColorExtension.swift in Sources */,
+				A0B5DC9A24DDAE50006CAAA3 /* MediaGridView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +501,14 @@
 				minimumVersion = 0.29.1;
 			};
 		};
+		A0A8AA2724DE2831001CBB60 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.14.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -515,6 +531,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A0A3154824BB92F7003CE231 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = ApolloCore;
+		};
+		A0A8AA2824DE2832001CBB60 /* KingfisherSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A0A8AA2724DE2831001CBB60 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = KingfisherSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

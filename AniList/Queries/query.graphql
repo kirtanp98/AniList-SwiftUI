@@ -219,7 +219,7 @@ query getMedia($id: Int, $type: MediaType, $isAdult: Boolean) {
 }
 
 query getTopMedia($page: Int, $type: MediaType){
-  Page (page: $page, perPage: 30) {
+  Page (page: $page, perPage: 25) {
        pageInfo {
        total
        currentPage
