@@ -9,7 +9,12 @@ import SwiftUI
 
 struct MediaGridView: View {
     
-    @ObservedObject var topMedia: TopMediaData = TopMediaData(type: .anime)
+    @ObservedObject var topMedia: TopMediaData
+    
+    init(type: MediaType) {
+        topMedia = TopMediaData(type: type)
+    }
+    
     
     let columns = [
         GridItem(.flexible()),
@@ -24,7 +29,6 @@ struct MediaGridView: View {
                         HStack {
                             ZStack{
                                 CoverImageView(url: media.coverImage.url)
-                                    //.shadow(color: Color(hexString: media.coverImage.overallColor), radius: 7)
                                 VStack {
                                     Spacer()
                                     Text(media.title.romaji)
@@ -36,13 +40,13 @@ struct MediaGridView: View {
                                 }
                                 .frame(width: 168, height: 240)
                             }
-                                .onAppear {
-                                    if media == topMedia.mediaList.last {
-                                        withAnimation {
-                                            topMedia.getAnotherPageDate()
-                                        }
+                            .onAppear {
+                                if media == topMedia.mediaList.last {
+                                    withAnimation {
+                                        topMedia.getAnotherPageDate()
                                     }
                                 }
+                            }
                         }
                     }
                 }
@@ -53,6 +57,6 @@ struct MediaGridView: View {
 
 struct MediaGridView_Previews: PreviewProvider {
     static var previews: some View {
-        MediaGridView()
+        MediaGridView(type: .anime)
     }
 }

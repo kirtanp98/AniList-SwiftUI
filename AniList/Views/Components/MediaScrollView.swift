@@ -28,7 +28,7 @@ struct MediaScrollView: View {
                         .frame(width: 175)
                     }
                     
-                    NavigationLink(destination: MediaGridView()) {
+                    NavigationLink(destination: MediaGridView(type: topMedia.mediaType)) {
                         Image(systemName: "arrow.right")
                             .resizable()
                             .aspectRatio(contentMode: .fit)

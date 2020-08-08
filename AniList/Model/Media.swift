@@ -40,6 +40,9 @@ class Media: Identifiable, Equatable {
     
     
     var cleanDescription: String? {
+        
+        return description
+        
         if let description = description {
             return description.replacingOccurrences(of: "<br>", with: "")
         } else {

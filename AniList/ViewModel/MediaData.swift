@@ -18,11 +18,11 @@ class MediaData: ObservableObject {
         media = nil
         mediaId = id
         mediaType = type
-        print("running loadData")
-        loadData()
+//        loadData()
     }
     
     func loadData() {
+        print("getting current media")
         Network.shared.apollo.fetch(query: GetMediaQuery(id: mediaId, type: mediaType, isAdult: false)) { result in
             switch result {
             case .success(let graphQLResult):

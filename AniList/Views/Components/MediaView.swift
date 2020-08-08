@@ -32,19 +32,23 @@ struct MediaView: View {
                         }
 
                         HStack {
-                            VStack(alignment: .center) {
+                            Spacer()
+                            VStack(alignment: .center, spacing: 5.0) {
                                 Text("Popularity")
                                 Text("\(media.popularity ?? 0)")
                             }
-                            VStack(alignment: .center) {
+                            Spacer()
+                            VStack(alignment: .center, spacing: 5.0) {
                                 Text("Average Score")
                                 Text("\(media.averageScore ?? 0)")
                             }
-                            VStack(alignment: .center) {
+                            Spacer()
+                            VStack(alignment: .center, spacing: 5.0) {
                                 Text("Mean Score")
                                 Text("\(media.meanScore ?? 0)")
                             }
-                            VStack(alignment: .center) {
+                            Spacer()
+                            VStack(alignment: .center, spacing: 5.0) {
                                 Text("Favorites")
                                 Text("\(media.favorites ?? 0)")
                             }
@@ -55,7 +59,7 @@ struct MediaView: View {
                         Divider()
                         
                         DisclosureGroup("Description") {
-                            Text(media.cleanDescription ?? "")
+                            TextUtility.cleanDescription(media.description!)
                                 .padding()
                         }
                         .font(.subheadline)
@@ -89,8 +93,11 @@ struct MediaView: View {
                 Spacer()
             }
         }
-        .navigationBarTitle(data.media?.title.romaji ?? "oops")
+        .navigationBarTitle(data.media?.title.romaji ?? "Loading...")
         .accentColor(Color(hexString: data.media?.coverImage.overallColor ?? "#000000"))
+        .onAppear{
+            data.loadData()
+        }
 
     }
 }
