@@ -10,21 +10,25 @@ import Foundation
 class TopMediaData: ObservableObject {
     @Published var mediaList: [Media]
     @Published var error: Bool
+    @Published var mediaListName: String
     var mediaType: MediaType
     var page: Int
+    var mediaSort: [MediaSort]
     
-    init(type: MediaType) {
+    init(type: MediaType, sort: [MediaSort], name: String) {
         error = false
         mediaList = []
+        mediaListName = name
         mediaType = type
         page = 1
+        mediaSort = sort
         print("running loadData")
         loadData()
     }
-    
+    //["POPULARITY_DESC"]
     func loadData() {
         var tempList:[Media] = []
-        Network.shared.apollo.fetch(query: GetTopMediaQuery(page: page, type: mediaType)) { result in
+        Network.shared.apollo.fetch(query: GetTopMediaQuery(page: page, type: mediaType, sort: mediaSort)) { result in
             switch result {
             case .success(let graphQLResult):
                 for media in graphQLResult.data!.page!.media! {

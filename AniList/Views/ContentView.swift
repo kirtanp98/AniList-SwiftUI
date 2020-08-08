@@ -12,7 +12,7 @@ struct ContentView: View {
         TabView {
             TrendingView()
                 .tabItem {
-                    Text("Trending")
+                    Text("Discover")
                 }
             Text("Anime")
                 .tabItem {

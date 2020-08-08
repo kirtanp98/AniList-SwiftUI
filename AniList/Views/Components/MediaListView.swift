@@ -9,11 +9,11 @@ import SwiftUI
 
 struct MediaListView: View {
     
-    @ObservedObject var topMedia: TopMediaData = TopMediaData(type: .anime)
+    @ObservedObject var topMedia: TopMediaData = TopMediaData(type: .anime, sort: [.popularity], name: "")
     @State var name: String = ""
     
-    init(name: String, type: MediaType) {
-        self.topMedia = TopMediaData(type: type)
+    init(name: String, type: MediaType, sort: [MediaSort]) {
+        self.topMedia = TopMediaData(type: type, sort: sort, name: name)
         self.name = name
     }
     
@@ -47,6 +47,6 @@ struct MediaListView: View {
 
 struct MediaListView_Previews: PreviewProvider {
     static var previews: some View {
-        MediaListView(name: "Top Anime", type: .anime)
+        MediaListView(name: "Top Anime", type: .anime, sort: [.popularityDesc])
     }
 }

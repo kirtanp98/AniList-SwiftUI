@@ -739,6 +739,222 @@ public enum MediaListStatus: RawRepresentable, Equatable, Hashable, CaseIterable
   }
 }
 
+/// Media sort enums
+public enum MediaSort: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case id
+  case idDesc
+  case titleRomaji
+  case titleRomajiDesc
+  case titleEnglish
+  case titleEnglishDesc
+  case titleNative
+  case titleNativeDesc
+  case type
+  case typeDesc
+  case format
+  case formatDesc
+  case startDate
+  case startDateDesc
+  case endDate
+  case endDateDesc
+  case score
+  case scoreDesc
+  case popularity
+  case popularityDesc
+  case trending
+  case trendingDesc
+  case episodes
+  case episodesDesc
+  case duration
+  case durationDesc
+  case status
+  case statusDesc
+  case chapters
+  case chaptersDesc
+  case volumes
+  case volumesDesc
+  case updatedAt
+  case updatedAtDesc
+  case searchMatch
+  case favourites
+  case favouritesDesc
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "ID": self = .id
+      case "ID_DESC": self = .idDesc
+      case "TITLE_ROMAJI": self = .titleRomaji
+      case "TITLE_ROMAJI_DESC": self = .titleRomajiDesc
+      case "TITLE_ENGLISH": self = .titleEnglish
+      case "TITLE_ENGLISH_DESC": self = .titleEnglishDesc
+      case "TITLE_NATIVE": self = .titleNative
+      case "TITLE_NATIVE_DESC": self = .titleNativeDesc
+      case "TYPE": self = .type
+      case "TYPE_DESC": self = .typeDesc
+      case "FORMAT": self = .format
+      case "FORMAT_DESC": self = .formatDesc
+      case "START_DATE": self = .startDate
+      case "START_DATE_DESC": self = .startDateDesc
+      case "END_DATE": self = .endDate
+      case "END_DATE_DESC": self = .endDateDesc
+      case "SCORE": self = .score
+      case "SCORE_DESC": self = .scoreDesc
+      case "POPULARITY": self = .popularity
+      case "POPULARITY_DESC": self = .popularityDesc
+      case "TRENDING": self = .trending
+      case "TRENDING_DESC": self = .trendingDesc
+      case "EPISODES": self = .episodes
+      case "EPISODES_DESC": self = .episodesDesc
+      case "DURATION": self = .duration
+      case "DURATION_DESC": self = .durationDesc
+      case "STATUS": self = .status
+      case "STATUS_DESC": self = .statusDesc
+      case "CHAPTERS": self = .chapters
+      case "CHAPTERS_DESC": self = .chaptersDesc
+      case "VOLUMES": self = .volumes
+      case "VOLUMES_DESC": self = .volumesDesc
+      case "UPDATED_AT": self = .updatedAt
+      case "UPDATED_AT_DESC": self = .updatedAtDesc
+      case "SEARCH_MATCH": self = .searchMatch
+      case "FAVOURITES": self = .favourites
+      case "FAVOURITES_DESC": self = .favouritesDesc
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .id: return "ID"
+      case .idDesc: return "ID_DESC"
+      case .titleRomaji: return "TITLE_ROMAJI"
+      case .titleRomajiDesc: return "TITLE_ROMAJI_DESC"
+      case .titleEnglish: return "TITLE_ENGLISH"
+      case .titleEnglishDesc: return "TITLE_ENGLISH_DESC"
+      case .titleNative: return "TITLE_NATIVE"
+      case .titleNativeDesc: return "TITLE_NATIVE_DESC"
+      case .type: return "TYPE"
+      case .typeDesc: return "TYPE_DESC"
+      case .format: return "FORMAT"
+      case .formatDesc: return "FORMAT_DESC"
+      case .startDate: return "START_DATE"
+      case .startDateDesc: return "START_DATE_DESC"
+      case .endDate: return "END_DATE"
+      case .endDateDesc: return "END_DATE_DESC"
+      case .score: return "SCORE"
+      case .scoreDesc: return "SCORE_DESC"
+      case .popularity: return "POPULARITY"
+      case .popularityDesc: return "POPULARITY_DESC"
+      case .trending: return "TRENDING"
+      case .trendingDesc: return "TRENDING_DESC"
+      case .episodes: return "EPISODES"
+      case .episodesDesc: return "EPISODES_DESC"
+      case .duration: return "DURATION"
+      case .durationDesc: return "DURATION_DESC"
+      case .status: return "STATUS"
+      case .statusDesc: return "STATUS_DESC"
+      case .chapters: return "CHAPTERS"
+      case .chaptersDesc: return "CHAPTERS_DESC"
+      case .volumes: return "VOLUMES"
+      case .volumesDesc: return "VOLUMES_DESC"
+      case .updatedAt: return "UPDATED_AT"
+      case .updatedAtDesc: return "UPDATED_AT_DESC"
+      case .searchMatch: return "SEARCH_MATCH"
+      case .favourites: return "FAVOURITES"
+      case .favouritesDesc: return "FAVOURITES_DESC"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: MediaSort, rhs: MediaSort) -> Bool {
+    switch (lhs, rhs) {
+      case (.id, .id): return true
+      case (.idDesc, .idDesc): return true
+      case (.titleRomaji, .titleRomaji): return true
+      case (.titleRomajiDesc, .titleRomajiDesc): return true
+      case (.titleEnglish, .titleEnglish): return true
+      case (.titleEnglishDesc, .titleEnglishDesc): return true
+      case (.titleNative, .titleNative): return true
+      case (.titleNativeDesc, .titleNativeDesc): return true
+      case (.type, .type): return true
+      case (.typeDesc, .typeDesc): return true
+      case (.format, .format): return true
+      case (.formatDesc, .formatDesc): return true
+      case (.startDate, .startDate): return true
+      case (.startDateDesc, .startDateDesc): return true
+      case (.endDate, .endDate): return true
+      case (.endDateDesc, .endDateDesc): return true
+      case (.score, .score): return true
+      case (.scoreDesc, .scoreDesc): return true
+      case (.popularity, .popularity): return true
+      case (.popularityDesc, .popularityDesc): return true
+      case (.trending, .trending): return true
+      case (.trendingDesc, .trendingDesc): return true
+      case (.episodes, .episodes): return true
+      case (.episodesDesc, .episodesDesc): return true
+      case (.duration, .duration): return true
+      case (.durationDesc, .durationDesc): return true
+      case (.status, .status): return true
+      case (.statusDesc, .statusDesc): return true
+      case (.chapters, .chapters): return true
+      case (.chaptersDesc, .chaptersDesc): return true
+      case (.volumes, .volumes): return true
+      case (.volumesDesc, .volumesDesc): return true
+      case (.updatedAt, .updatedAt): return true
+      case (.updatedAtDesc, .updatedAtDesc): return true
+      case (.searchMatch, .searchMatch): return true
+      case (.favourites, .favourites): return true
+      case (.favouritesDesc, .favouritesDesc): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+
+  public static var allCases: [MediaSort] {
+    return [
+      .id,
+      .idDesc,
+      .titleRomaji,
+      .titleRomajiDesc,
+      .titleEnglish,
+      .titleEnglishDesc,
+      .titleNative,
+      .titleNativeDesc,
+      .type,
+      .typeDesc,
+      .format,
+      .formatDesc,
+      .startDate,
+      .startDateDesc,
+      .endDate,
+      .endDateDesc,
+      .score,
+      .scoreDesc,
+      .popularity,
+      .popularityDesc,
+      .trending,
+      .trendingDesc,
+      .episodes,
+      .episodesDesc,
+      .duration,
+      .durationDesc,
+      .status,
+      .statusDesc,
+      .chapters,
+      .chaptersDesc,
+      .volumes,
+      .volumesDesc,
+      .updatedAt,
+      .updatedAtDesc,
+      .searchMatch,
+      .favourites,
+      .favouritesDesc,
+    ]
+  }
+}
+
 public final class GetMediaQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
@@ -4308,7 +4524,7 @@ public final class GetTopMediaQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query getTopMedia($page: Int, $type: MediaType) {
+    query getTopMedia($page: Int, $type: MediaType, $sort: [MediaSort]) {
       Page(page: $page, perPage: 25) {
         __typename
         pageInfo {
@@ -4319,7 +4535,7 @@ public final class GetTopMediaQuery: GraphQLQuery {
           hasNextPage
           perPage
         }
-        media(sort: POPULARITY_DESC, type: $type) {
+        media(sort: $sort, type: $type) {
           __typename
           id
           title {
@@ -4333,7 +4549,6 @@ public final class GetTopMediaQuery: GraphQLQuery {
             large
             color
           }
-          popularity
         }
       }
     }
@@ -4343,14 +4558,16 @@ public final class GetTopMediaQuery: GraphQLQuery {
 
   public var page: Int?
   public var type: MediaType?
+  public var sort: [MediaSort?]?
 
-  public init(page: Int? = nil, type: MediaType? = nil) {
+  public init(page: Int? = nil, type: MediaType? = nil, sort: [MediaSort?]? = nil) {
     self.page = page
     self.type = type
+    self.sort = sort
   }
 
   public var variables: GraphQLMap? {
-    return ["page": page, "type": type]
+    return ["page": page, "type": type, "sort": sort]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -4388,7 +4605,7 @@ public final class GetTopMediaQuery: GraphQLQuery {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("pageInfo", type: .object(PageInfo.selections)),
-          GraphQLField("media", arguments: ["sort": "POPULARITY_DESC", "type": GraphQLVariable("type")], type: .list(.object(Medium.selections))),
+          GraphQLField("media", arguments: ["sort": GraphQLVariable("sort"), "type": GraphQLVariable("type")], type: .list(.object(Medium.selections))),
         ]
       }
 
@@ -4523,7 +4740,6 @@ public final class GetTopMediaQuery: GraphQLQuery {
             GraphQLField("id", type: .nonNull(.scalar(Int.self))),
             GraphQLField("title", type: .object(Title.selections)),
             GraphQLField("coverImage", type: .object(CoverImage.selections)),
-            GraphQLField("popularity", type: .scalar(Int.self)),
           ]
         }
 
@@ -4533,8 +4749,8 @@ public final class GetTopMediaQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(id: Int, title: Title? = nil, coverImage: CoverImage? = nil, popularity: Int? = nil) {
-          self.init(unsafeResultMap: ["__typename": "Media", "id": id, "title": title.flatMap { (value: Title) -> ResultMap in value.resultMap }, "coverImage": coverImage.flatMap { (value: CoverImage) -> ResultMap in value.resultMap }, "popularity": popularity])
+        public init(id: Int, title: Title? = nil, coverImage: CoverImage? = nil) {
+          self.init(unsafeResultMap: ["__typename": "Media", "id": id, "title": title.flatMap { (value: Title) -> ResultMap in value.resultMap }, "coverImage": coverImage.flatMap { (value: CoverImage) -> ResultMap in value.resultMap }])
         }
 
         public var __typename: String {
@@ -4573,16 +4789,6 @@ public final class GetTopMediaQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue?.resultMap, forKey: "coverImage")
-          }
-        }
-
-        /// The number of users with the media on their list
-        public var popularity: Int? {
-          get {
-            return resultMap["popularity"] as? Int
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "popularity")
           }
         }
 

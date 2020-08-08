@@ -38,18 +38,6 @@ class Media: Identifiable, Equatable {
     var favorites: Int?
     var relations: MediaRelations?
     
-    
-    var cleanDescription: String? {
-        
-        return description
-        
-        if let description = description {
-            return description.replacingOccurrences(of: "<br>", with: "")
-        } else {
-            return nil
-        }
-    }
-    
     init(media: GetMediaQuery.Data.Medium) {
         bannerImage = media.bannerImage
         coverImage = MediaCover(cover: media.coverImage!)

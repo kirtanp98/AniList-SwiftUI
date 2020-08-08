@@ -11,8 +11,8 @@ struct MediaGridView: View {
     
     @ObservedObject var topMedia: TopMediaData
     
-    init(type: MediaType) {
-        topMedia = TopMediaData(type: type)
+    init(type: MediaType, sort: [MediaSort], name: String) {
+        topMedia = TopMediaData(type: type, sort: sort, name: name)
     }
     
     
@@ -51,12 +51,12 @@ struct MediaGridView: View {
                     }
                 }
             }
-        }
+        }.navigationTitle(topMedia.mediaListName)
     }
 }
 
 struct MediaGridView_Previews: PreviewProvider {
     static var previews: some View {
-        MediaGridView(type: .anime)
+        MediaGridView(type: .anime, sort: [.popularity], name: "")
     }
 }

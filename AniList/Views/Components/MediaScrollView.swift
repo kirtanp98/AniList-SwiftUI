@@ -27,8 +27,8 @@ struct MediaScrollView: View {
                         }
                         .frame(width: 175)
                     }
-                    
-                    NavigationLink(destination: MediaGridView(type: topMedia.mediaType)) {
+                    //TODO : FIX THIS PARAMENTER
+                    NavigationLink(destination: MediaGridView(type: topMedia.mediaType, sort: topMedia.mediaSort, name: topMedia.mediaListName)) {
                         Image(systemName: "arrow.right")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -48,6 +48,7 @@ struct MediaScrollView: View {
 
 struct MediaScrollView_Previews: PreviewProvider {
     static var previews: some View {
-        MediaScrollView(topMedia: TopMediaData(type: .anime))
+        MediaScrollView(topMedia: TopMediaData(type: .anime, sort: [.popularity], name: "asd"))
     }
 }
+

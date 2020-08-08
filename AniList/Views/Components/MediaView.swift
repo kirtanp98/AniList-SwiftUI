@@ -11,6 +11,7 @@ struct MediaView: View {
     
     @ObservedObject var data: MediaData
     @State var accentColor: Color = .purple
+    @State var showDescription: Bool = true
     
     init(id: Int, type: MediaType) {
         data = MediaData(id: id, type: type)
@@ -58,12 +59,15 @@ struct MediaView: View {
                        
                         Divider()
                         
-                        DisclosureGroup("Description") {
-                            TextUtility.cleanDescription(media.description!)
-                                .padding()
+                        if let description = media.description {
+                            DisclosureGroup("Description", isExpanded: $showDescription) {
+                                TextUtility.cleanDescription(description)
+                                    .padding()
+                            }
+                            .font(.subheadline)
+                            .padding()
                         }
-                        .font(.subheadline)
-                        .padding()
+                        
                         VStack {
                             HStack {
                                 Text("Relations")

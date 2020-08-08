@@ -218,17 +218,17 @@ query getMedia($id: Int, $type: MediaType, $isAdult: Boolean) {
   }
 }
 
-query getTopMedia($page: Int, $type: MediaType){
+query getTopMedia($page: Int, $type: MediaType, $sort: [MediaSort]){
   Page (page: $page, perPage: 25) {
        pageInfo {
-       total
-       currentPage
-       lastPage
-       hasNextPage
-       perPage
-         }
+         total
+         currentPage
+         lastPage
+         hasNextPage
+         perPage
+        }
     
-    media(sort: POPULARITY_DESC, type: $type) {
+    media(sort: $sort, type: $type) {
       id
       title {
         english
@@ -236,13 +236,14 @@ query getTopMedia($page: Int, $type: MediaType){
         romaji
       }
       
-      # description
       coverImage{
         large
         color
       }
-      popularity
     }
     
   }
 }
+
+
+

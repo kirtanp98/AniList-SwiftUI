@@ -8,32 +8,51 @@
 import SwiftUI
 
 struct TrendingView: View {
-        
+    
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack {
+                    
                     HStack {
-                        Text("Top Anime")
+                        Text("Trending Anime")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .padding(.leading)
+                        Spacer()
+                    }
+                    MediaScrollView(topMedia: TopMediaData(type: .anime, sort: [.trendingDesc, .popularityDesc], name: "Trending Anime"))
+                    
+                    HStack {
+                        Text("Trending Manga")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .padding(.leading)
+                        Spacer()
+                    }
+                    MediaScrollView(topMedia: TopMediaData(type: .manga, sort: [.trendingDesc, .popularityDesc], name: "Trending Manga"))
+                    
+                    HStack {
+                        Text("Popular Anime")
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .padding(.leading)
                         Spacer()
                     }
                     
-                    MediaScrollView(topMedia: TopMediaData(type: .anime))
+                    MediaScrollView(topMedia: TopMediaData(type: .anime, sort: [.popularityDesc], name: "Popular Anime"))
                     
                     HStack {
-                        Text("Top Manga")
+                        Text("Popular Manga")
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .padding(.leading)
                         Spacer()
                     }
-                                    
-                    MediaScrollView(topMedia: TopMediaData(type: .manga))
+                    
+                    MediaScrollView(topMedia: TopMediaData(type: .manga, sort: [.popularityDesc], name: "Popular Manga"))
                 }
-            }.navigationTitle("Trending")
+            }.navigationTitle("Discover")
         }
     }
 }
