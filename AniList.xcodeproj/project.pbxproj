@@ -12,6 +12,8 @@
 		A02A122724BD1C2F005FB2AE /* query.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A02A122624BD1C2F005FB2AE /* query.graphql */; };
 		A02A122A24BD2129005FB2AE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02A122924BD2129005FB2AE /* API.swift */; };
 		A02A122C24BD235E005FB2AE /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02A122B24BD235E005FB2AE /* Network.swift */; };
+		A03F8E2024E30BB3005CD7CE /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03F8E1F24E30BB3005CD7CE /* AccountView.swift */; };
+		A03F8E2324E32B1B005CD7CE /* UnClippedCoverImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03F8E2224E32B1B005CD7CE /* UnClippedCoverImageView.swift */; };
 		A047887524E21A7E00F5E559 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A047887424E21A7E00F5E559 /* LazyView.swift */; };
 		A047887724E2252600F5E559 /* FormattedCoverImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A047887624E2252600F5E559 /* FormattedCoverImage.swift */; };
 		A052817624DF05F400DF9F68 /* TextUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A052817524DF05F400DF9F68 /* TextUtil.swift */; };
@@ -43,6 +45,8 @@
 		A02A122624BD1C2F005FB2AE /* query.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = query.graphql; sourceTree = "<group>"; };
 		A02A122924BD2129005FB2AE /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		A02A122B24BD235E005FB2AE /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		A03F8E1F24E30BB3005CD7CE /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		A03F8E2224E32B1B005CD7CE /* UnClippedCoverImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnClippedCoverImageView.swift; sourceTree = "<group>"; };
 		A047887424E21A7E00F5E559 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		A047887624E2252600F5E559 /* FormattedCoverImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedCoverImage.swift; sourceTree = "<group>"; };
 		A052817524DF05F400DF9F68 /* TextUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextUtil.swift; sourceTree = "<group>"; };
@@ -97,6 +101,23 @@
 			path = Queries;
 			sourceTree = "<group>";
 		};
+		A03F8E1E24E30BA8005CD7CE /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				A03F8E1F24E30BB3005CD7CE /* AccountView.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		A03F8E2124E32B0B005CD7CE /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				A08DF3A824BE802E007B01DF /* CoverImageView.swift */,
+				A03F8E2224E32B1B005CD7CE /* UnClippedCoverImageView.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		A068B3EF24C3623600377899 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,7 +131,7 @@
 		A068B3F224C362DC00377899 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				A08DF3A824BE802E007B01DF /* CoverImageView.swift */,
+				A03F8E2124E32B0B005CD7CE /* Image */,
 				A068B3F324C3632200377899 /* MediaView.swift */,
 				A0CD190224CCAE160008AFF6 /* BannerImageView.swift */,
 				A066E8CB24CDD6AA00D050E9 /* MediaScrollView.swift */,
@@ -168,6 +189,7 @@
 		A0A3155524BBC572003CE231 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A03F8E1E24E30BA8005CD7CE /* Account */,
 				A0EC1B9E24D0DEEE00645FE0 /* Trending */,
 				A068B3F224C362DC00377899 /* Components */,
 				A0A3153B24BB9136003CE231 /* ContentView.swift */,
@@ -300,6 +322,7 @@
 				A052817624DF05F400DF9F68 /* TextUtil.swift in Sources */,
 				A0EC1BA024D0E0A500645FE0 /* MediaListView.swift in Sources */,
 				A02A122C24BD235E005FB2AE /* Network.swift in Sources */,
+				A03F8E2024E30BB3005CD7CE /* AccountView.swift in Sources */,
 				A0A3155724BBC583003CE231 /* TrendingView.swift in Sources */,
 				A068B3F124C3624700377899 /* MediaData.swift in Sources */,
 				A047887524E21A7E00F5E559 /* LazyView.swift in Sources */,
@@ -311,6 +334,7 @@
 				A0CD190124CCADC80008AFF6 /* ImageFromURL.swift in Sources */,
 				A02A122A24BD2129005FB2AE /* API.swift in Sources */,
 				A08DF3A924BE802E007B01DF /* CoverImageView.swift in Sources */,
+				A03F8E2324E32B1B005CD7CE /* UnClippedCoverImageView.swift in Sources */,
 				A0A3153A24BB9136003CE231 /* AniListApp.swift in Sources */,
 				A068B3F424C3632200377899 /* MediaView.swift in Sources */,
 				A0CD190624CCB7B00008AFF6 /* ColorExtension.swift in Sources */,

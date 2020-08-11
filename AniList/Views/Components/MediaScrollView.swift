@@ -33,38 +33,19 @@ struct MediaScrollView: View {
                     LazyHStack {
                         ForEach(topMedia.mediaList) { media in
                             if topMedia.mediaList.first == media {
-//                                VStack(alignment: .center) {
-//                                    NavigationLink(destination: LazyView(MediaView(id: media.id, type: topMedia.mediaType))){
-//                                        CoverImageView(url: media.coverImage.url)
-//                                    }
-//                                    Text(media.title.romaji)
-//                                        .multilineTextAlignment(.leading)
-//                                        .frame(width: 160)
-//                                    Spacer()
-//                                }
-//                                .frame(width: 175)
-//                                .padding(.leading, 21.0)
                                 NavigationLink(destination: LazyView(MediaView(id: media.id, type: topMedia.mediaType))){
                                     FormattedCoverImage(url: media.coverImage.url, name: media.title.romaji)
                                         .frame(width: 175)
                                         .padding(.leading, 21.0)
-                                }
+                                }.buttonStyle(PlainButtonStyle())
 
                             } else {
                                 NavigationLink(destination: LazyView(MediaView(id: media.id, type: topMedia.mediaType))){
                                     FormattedCoverImage(url: media.coverImage.url, name: media.title.romaji)
                                         .frame(width: 175)
-                                }
+                                }.buttonStyle(PlainButtonStyle())
                             }
                         }
-                        //TODO : FIX THIS PARAMENTER
-                        //                    NavigationLink(destination: LazyView(MediaGridView(type: topMedia.mediaType, sort: topMedia.mediaSort, name: topMedia.mediaListName))) {
-                        //                        Image(systemName: "arrow.right")
-                        //                            .resizable()
-                        //                            .aspectRatio(contentMode: .fit)
-                        //                            .frame(width: 80)
-                        //                            .padding(.trailing)
-                        //                    }
                     }
                 }.animation(.default)
             } else {

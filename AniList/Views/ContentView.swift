@@ -12,20 +12,30 @@ struct ContentView: View {
         TabView {
             TrendingView()
                 .tabItem {
+                    Image(systemName: "bolt")
                     Text("Discover")
                 }
             Text("Anime")
                 .tabItem {
+                    Image(systemName: "tv")
                     Text("Anime")
+                }
+            AccountView()
+                .tabItem {
+                    Image(systemName: "person.crop.circle")
+                    Text("Account")
                 }
             Text("Manga")
                 .tabItem {
+                    Image(systemName: "book")
                     Text("Manga")
                 }
             Text("Search")
                 .tabItem {
+                    Image(systemName: "magnifyingglass")
                     Text("Search")
                 }
+            
         }.accentColor(.purple)
     }
 }

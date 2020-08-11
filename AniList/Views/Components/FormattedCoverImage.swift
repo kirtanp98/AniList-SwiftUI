@@ -13,22 +13,17 @@ struct FormattedCoverImage: View {
     var name: String
     
     var body: some View {
-        ZStack{
+        VStack{
             CoverImageView(url: url)
             VStack {
-                Spacer()
                 Text(name)
                     .bold()
-                    .multilineTextAlignment(.leading)
+                    .multilineTextAlignment(.center)
                     .lineLimit(3)
-                    .foregroundColor(.white)
                     .padding([.leading, .trailing], 5.0)
-                    .padding(.bottom)
-
-                //Capsule(style: .circular)
-                
+                Spacer()
             }
-            .frame(width: 168, height: 240)
+            .frame(width: 168, height: 55)
         }
     }
 }

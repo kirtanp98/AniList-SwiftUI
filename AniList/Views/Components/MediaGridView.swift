@@ -23,7 +23,7 @@ struct MediaGridView: View {
     
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: columns, spacing: 15) {
+            LazyVGrid(columns: columns, spacing: 1) {
                 ForEach(topMedia.mediaList) { media in
                     NavigationLink(destination: LazyView(MediaView(id: media.id, type: topMedia.mediaType))){
                         HStack {
@@ -36,7 +36,7 @@ struct MediaGridView: View {
                                 }
                             }
                         }
-                    }
+                    }.buttonStyle(PlainButtonStyle())
                 }
             }
         }.navigationTitle(topMedia.mediaListName)

@@ -25,16 +25,12 @@ struct CoverImageView: View {
                 )
                 .redacted(reason: .placeholder)
             }
-            .onSuccess(perform: { val in
-                print(val.image.size.width)
-//                width = val.image.size.width
-//                height = val.image.size.height
-            })
             .cancelOnDisappear(true)
             .renderingMode(.original)
             .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(height: 240)
+            .aspectRatio(contentMode: .fill)
+            .frame(width: 168, height: 240)
+            .clipped()
             .cornerRadius(10.0)
             .animation(.default)
     }

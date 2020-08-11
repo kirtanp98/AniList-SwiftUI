@@ -27,7 +27,7 @@ struct MediaView: View {
                                 .frame(maxWidth: .infinity)
                                 .frame(height: 280)
                                 .foregroundColor(Color(hexString: (data.media?.coverImage.overallColor)!))
-                            CoverImageView(url: media.coverImage.url)
+                            UnClippedCoverImageView(url: media.coverImage.url)
                                 .animation(.default)
                                 .shadow(radius: 8)
                         }
