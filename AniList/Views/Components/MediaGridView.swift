@@ -25,21 +25,9 @@ struct MediaGridView: View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 15) {
                 ForEach(topMedia.mediaList) { media in
-                    NavigationLink(destination: MediaView(id: media.id, type: topMedia.mediaType)){
+                    NavigationLink(destination: LazyView(MediaView(id: media.id, type: topMedia.mediaType))){
                         HStack {
-                            ZStack{
-                                CoverImageView(url: media.coverImage.url)
-                                VStack {
-                                    Spacer()
-                                    Text(media.title.romaji)
-                                        .bold()
-                                        .multilineTextAlignment(.leading)
-                                        .foregroundColor(.white)
-                                        .padding(.bottom)
-                                
-                                }
-                                .frame(width: 168, height: 240)
-                            }
+                            FormattedCoverImage(url: media.coverImage.url, name: media.title.romaji)
                             .onAppear {
                                 if media == topMedia.mediaList.last {
                                     withAnimation {

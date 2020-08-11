@@ -77,7 +77,7 @@ struct MediaView: View {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack {
                                     ForEach(media.relations!.edges) { edge in
-                                        NavigationLink(destination: MediaView(id: edge.node.id, type: edge.node.type)){
+                                        NavigationLink(destination: LazyView(MediaView(id: edge.node.id, type: edge.node.type))){
                                             VStack {
                                                 CoverImageView(url: edge.node.coverImage.url)
                                                 Text(edge.type)

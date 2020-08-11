@@ -23,7 +23,13 @@ struct CoverImageView: View {
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.gray, lineWidth: 2)
                 )
+                .redacted(reason: .placeholder)
             }
+            .onSuccess(perform: { val in
+                print(val.image.size.width)
+//                width = val.image.size.width
+//                height = val.image.size.height
+            })
             .cancelOnDisappear(true)
             .renderingMode(.original)
             .resizable()
@@ -33,6 +39,7 @@ struct CoverImageView: View {
             .animation(.default)
     }
 }
+
 
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
