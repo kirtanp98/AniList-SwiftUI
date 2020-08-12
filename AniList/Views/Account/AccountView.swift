@@ -6,8 +6,8 @@
 //
 
 import SwiftUI
-import KingfisherSwiftUI
-import class Kingfisher.ImageCache
+//import KingfisherSwiftUI
+//import class Kingfisher.ImageCache
 
 struct AccountView: View {
     
@@ -15,25 +15,11 @@ struct AccountView: View {
     
     var body: some View {
         VStack{
-            
-            Text(cache)
-                .onAppear{
-                    ImageCache.default.calculateDiskStorageSize { result in
-                        switch result {
-                        case .success(let size):
-                            cache = "Disk cache size: \(Double(size) / 1024 / 1024) MB"
-                        case .failure(let error):
-                            print(error)
-                        }
-                    }
-                }
-            
             Button(action: {
-                ImageCache.default.clearMemoryCache()
                 print("asd")
             }) {
-                Text("Clear Cache")
-            }
+                Text("Login").padding()
+            }.background(Color.gray)
         }
     }
 }

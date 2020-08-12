@@ -31,31 +31,30 @@ struct MediaView: View {
                                 .animation(.default)
                                 .shadow(radius: 8)
                         }
-
-                        HStack {
-                            Spacer()
-                            VStack(alignment: .center, spacing: 5.0) {
-                                Text("Popularity")
-                                Text("\(media.popularity ?? 0)")
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 20) {
+                                VStack(alignment: .center, spacing: 5.0) {
+                                    Text("Popularity")
+                                    Text("\(media.popularity ?? 0)")
+                                }
+                                VStack(alignment: .center, spacing: 5.0) {
+                                    Text("Average Score")
+                                    Text("\(media.averageScore ?? 0)")
+                                }
+                                VStack(alignment: .center, spacing: 5.0) {
+                                    Text("Mean Score")
+                                    Text("\(media.meanScore ?? 0)")
+                                }
+                                VStack(alignment: .center, spacing: 5.0) {
+                                    Text("Favorites")
+                                    Text("\(media.favorites ?? 0)")
+                                }
                             }
-                            Spacer()
-                            VStack(alignment: .center, spacing: 5.0) {
-                                Text("Average Score")
-                                Text("\(media.averageScore ?? 0)")
-                            }
-                            Spacer()
-                            VStack(alignment: .center, spacing: 5.0) {
-                                Text("Mean Score")
-                                Text("\(media.meanScore ?? 0)")
-                            }
-                            Spacer()
-                            VStack(alignment: .center, spacing: 5.0) {
-                                Text("Favorites")
-                                Text("\(media.favorites ?? 0)")
-                            }
+                            .padding()
+                            .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.gray).opacity(0.25))
+                            .padding()
                         }
-                        .frame(maxWidth: .infinity)
-                        .padding()
+                        .padding([.bottom, .top])
                        
                         Divider()
                         

@@ -32,6 +32,11 @@ struct UnClippedCoverImageView: View {
             .frame(height: 240)
             .cornerRadius(10.0)
             .animation(.default)
+            .contextMenu(/*@START_MENU_TOKEN@*/ContextMenu(menuItems: {
+                Text("Menu Item 1")
+                Text("Menu Item 2")
+                Text("Menu Item 3")
+            })/*@END_MENU_TOKEN@*/)
     }
 }
 
