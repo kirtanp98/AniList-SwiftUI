@@ -12,14 +12,30 @@ import SwiftUI
 struct AccountView: View {
     
     @State var cache: String = ""
+    @State var showAuth = false
+    @State var code = ""
     
     var body: some View {
         VStack{
+            Text(code)
             Button(action: {
                 print("asd")
+                showAuth.toggle()
             }) {
                 Text("Login").padding()
-            }.background(Color.gray)
+            }
+        }.webAuthenticationSession(isPresented: $showAuth) {
+            WebAuthenticationSession(
+                //https://anilist.co/api/v2/oauth/authorize?client_id=3923&redirect_uri=tbd://&response_type=code
+                //https://anilist.co/api/v2/oauth/authorize?client_id=3923&response_type=token
+                url: URL(string: "https://anilist.co/api/v2/oauth/authorize?client_id=3923&response_type=token")!,
+                callbackURLScheme: "tbd://"
+            ) { callbackURL, error in
+                print("EEEEEEEEEEEEEEEE")
+                code = callbackURL!.absoluteString
+                print(Date(timeIntervalSinceNow: TimeInterval(31536000)))
+            }
+            .prefersEphemeralWebBrowserSession(false)
         }
     }
 }

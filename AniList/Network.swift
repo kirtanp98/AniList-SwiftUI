@@ -12,7 +12,7 @@ import Foundation
 //Apollo GraphQL and SwiftUI - https://www.youtube.com/watch?v=ZOerbQDOAgc
 
 class Network {
-  static let shared = Network()
+    static let shared = Network()
     
     private(set) lazy var apollo = ApolloClient(url: URL(string: "https://graphql.anilist.co")!)
 }
