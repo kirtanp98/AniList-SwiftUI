@@ -228,8 +228,31 @@ query getTopMedia($page: Int, $type: MediaType, $sort: [MediaSort]){
          perPage
         }
     
-    media(sort: $sort, type: $type) {
+    media(sort: $sort, type: $type, isAdult: false) {
+        ...mediaFragment
+    }
+    
+  }
+}
+
+query searchMedia($page: Int, $search: String) {
+       Page (page: $page, perPage: 30) {
+        pageInfo {
+            total
+            currentPage
+            lastPage
+            hasNextPage
+            perPage
+        }
+        media (search: $search, sort: POPULARITY_DESC, isAdult: false) {
+            ...mediaFragment
+        }
+    }
+}
+
+fragment mediaFragment on Media {
       id
+      type
       title {
         english
         native
@@ -240,10 +263,5 @@ query getTopMedia($page: Int, $type: MediaType, $sort: [MediaSort]){
         large
         color
       }
-    }
-    
-  }
 }
-
-
 

@@ -33,6 +33,8 @@
 		A0A3155724BBC583003CE231 /* TrendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A3155624BBC583003CE231 /* TrendingView.swift */; };
 		A0A8AA2924DE2832001CBB60 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = A0A8AA2824DE2832001CBB60 /* KingfisherSwiftUI */; };
 		A0B5DC9A24DDAE50006CAAA3 /* MediaGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B5DC9924DDAE50006CAAA3 /* MediaGridView.swift */; };
+		A0B9C24524E9C42000BD5DF1 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B9C24424E9C42000BD5DF1 /* SearchView.swift */; };
+		A0B9C24724E9D1C500BD5DF1 /* SearchMediaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B9C24624E9D1C500BD5DF1 /* SearchMediaData.swift */; };
 		A0CB184724E998A8006C5520 /* WebSessionAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CB184624E998A8006C5520 /* WebSessionAuthView.swift */; };
 		A0CD190124CCADC80008AFF6 /* ImageFromURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CD190024CCADC80008AFF6 /* ImageFromURL.swift */; };
 		A0CD190324CCAE160008AFF6 /* BannerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CD190224CCAE160008AFF6 /* BannerImageView.swift */; };
@@ -67,6 +69,8 @@
 		A0A3155324BB93FE003CE231 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		A0A3155624BBC583003CE231 /* TrendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingView.swift; sourceTree = "<group>"; };
 		A0B5DC9924DDAE50006CAAA3 /* MediaGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaGridView.swift; sourceTree = "<group>"; };
+		A0B9C24424E9C42000BD5DF1 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		A0B9C24624E9D1C500BD5DF1 /* SearchMediaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMediaData.swift; sourceTree = "<group>"; };
 		A0CB184624E998A8006C5520 /* WebSessionAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSessionAuthView.swift; sourceTree = "<group>"; };
 		A0CD190024CCADC80008AFF6 /* ImageFromURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFromURL.swift; sourceTree = "<group>"; };
 		A0CD190224CCAE160008AFF6 /* BannerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerImageView.swift; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 				A023BA6C24C372B700F8B41F /* TopMediaData.swift */,
 				A0CD190024CCADC80008AFF6 /* ImageFromURL.swift */,
 				A0F3791224E9AE8900AA9E24 /* AuthKeyManger.swift */,
+				A0B9C24624E9D1C500BD5DF1 /* SearchMediaData.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -199,12 +204,21 @@
 			isa = PBXGroup;
 			children = (
 				A0CB184524E99897006C5520 /* UIKit */,
+				A0B9C24324E9C40B00BD5DF1 /* Search */,
 				A03F8E1E24E30BA8005CD7CE /* Account */,
 				A0EC1B9E24D0DEEE00645FE0 /* Trending */,
 				A068B3F224C362DC00377899 /* Components */,
 				A0A3153B24BB9136003CE231 /* ContentView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A0B9C24324E9C40B00BD5DF1 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				A0B9C24424E9C42000BD5DF1 /* SearchView.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		A0CB184524E99897006C5520 /* UIKit */ = {
@@ -346,6 +360,8 @@
 				A0A3155724BBC583003CE231 /* TrendingView.swift in Sources */,
 				A068B3F124C3624700377899 /* MediaData.swift in Sources */,
 				A047887524E21A7E00F5E559 /* LazyView.swift in Sources */,
+				A0B9C24724E9D1C500BD5DF1 /* SearchMediaData.swift in Sources */,
+				A0B9C24524E9C42000BD5DF1 /* SearchView.swift in Sources */,
 				A01A75FD24BD27B200D4C493 /* Media.swift in Sources */,
 				A023BA6D24C372B700F8B41F /* TopMediaData.swift in Sources */,
 				A066E8CC24CDD6AA00D050E9 /* MediaScrollView.swift in Sources */,

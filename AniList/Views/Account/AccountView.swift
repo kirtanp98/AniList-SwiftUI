@@ -14,6 +14,7 @@ struct AccountView: View {
     @State var cache: String = ""
     @State var showAuth = false
     @State var code = ""
+    @StateObject var authManager: AuthKeyManager
     
     var body: some View {
         VStack{
@@ -31,9 +32,10 @@ struct AccountView: View {
                 url: URL(string: "https://anilist.co/api/v2/oauth/authorize?client_id=3923&response_type=token")!,
                 callbackURLScheme: "tbd://"
             ) { callbackURL, error in
-                print("EEEEEEEEEEEEEEEE")
+//                print("EEEEEEEEEEEEEEEE")
                 code = callbackURL!.absoluteString
-                print(Date(timeIntervalSinceNow: TimeInterval(31536000)))
+//                print(Date(timeIntervalSinceNow: TimeInterval(31536000)))
+                authManager.setCurrentAuthKey(callbackURL!.absoluteString)
             }
             .prefersEphemeralWebBrowserSession(false)
         }
@@ -42,6 +44,6 @@ struct AccountView: View {
 
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
-        AccountView()
+        AccountView(authManager: AuthKeyManager())
     }
 }

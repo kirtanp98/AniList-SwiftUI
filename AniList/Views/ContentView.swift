@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
         TabView {
             TrendingView()
@@ -20,7 +21,7 @@ struct ContentView: View {
                     Image(systemName: "tv")
                     Text("Anime")
                 }
-            AccountView()
+            AccountView(authManager: AuthKeyManager())
                 .tabItem {
                     Image(systemName: "person.crop.circle")
                     Text("Account")
@@ -30,7 +31,7 @@ struct ContentView: View {
                     Image(systemName: "book")
                     Text("Manga")
                 }
-            Text("Search")
+            SearchView()
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                     Text("Search")

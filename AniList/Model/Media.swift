@@ -7,20 +7,6 @@
 
 import Foundation
 
-
-//class Media {
-//    //AllFilmsQuery.Data.AllFilm.Film
-//    init(media: GetMediaQuery.Data.Medium) {
-//        media.coverImage
-//    }
-//
-//}
-//
-//id = film.id
-//label = film.title ?? ""
-//value = film.releaseDate ?? ""
-
-
 class Media: Identifiable, Equatable {
     
     var bannerImage: String?
@@ -37,6 +23,7 @@ class Media: Identifiable, Equatable {
     var popularity: Int?
     var favorites: Int?
     var relations: MediaRelations?
+    var type: MediaType?
     
     init(media: GetMediaQuery.Data.Medium) {
         bannerImage = media.bannerImage
@@ -56,9 +43,19 @@ class Media: Identifiable, Equatable {
     }
     
     init(pageMedia: GetTopMediaQuery.Data.Page.Medium) {
-        coverImage = MediaCover(pageCover: pageMedia.coverImage!)
-        id = pageMedia.id
-        title = MediaTitle(pageTitle: pageMedia.title!)
+        coverImage = MediaCover(pageCover: pageMedia.fragments.mediaFragment.coverImage!)
+        id = pageMedia.fragments.mediaFragment.id
+        title = MediaTitle(pageTitle: pageMedia.fragments.mediaFragment.title!)
+//        duration = 0
+//        bannerImage = nil
+    }
+    //SearchMediaQuery.Data.Page.Medium
+    
+    init(searchMedia: SearchMediaQuery.Data.Page.Medium) {
+        coverImage = MediaCover(pageCover: searchMedia.fragments.mediaFragment.coverImage!)
+        id = searchMedia.fragments.mediaFragment.id
+        title = MediaTitle(pageTitle: searchMedia.fragments.mediaFragment.title!)
+        type = searchMedia.fragments.mediaFragment.type
 //        duration = 0
 //        bannerImage = nil
     }
@@ -79,9 +76,12 @@ class MediaCover {
         url = cover.extraLarge ?? ""
     }
     
-    init(pageCover: GetTopMediaQuery.Data.Page.Medium.CoverImage) {
+    init(pageCover: MediaFragment.CoverImage) {
         overallColor = pageCover.color ?? ""
         url = pageCover.large ?? ""
+//        overallColor = pageCover.color ?? ""
+//        url = pageCover.large ?? ""
+        
     }
     
     init(nodeCover: GetMediaQuery.Data.Medium.Relation.Edge.Node.CoverImage) {
@@ -102,7 +102,7 @@ class MediaTitle {
         romaji = title.romaji ?? ""
     }
     
-    init(pageTitle: GetTopMediaQuery.Data.Page.Medium.Title) {
+    init(pageTitle: MediaFragment.Title) {
         english = pageTitle.english ?? ""
         native = pageTitle.native ?? ""
         romaji = pageTitle.romaji ?? ""
