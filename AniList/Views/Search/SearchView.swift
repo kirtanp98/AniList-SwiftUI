@@ -21,18 +21,18 @@ struct SearchView: View {
         NavigationView {
             VStack {
                 VStack {
-                TextField("Search", text: $search)
-                    .padding(8.5)
-                    .background(Color.gray.opacity(0.15))
-                    .cornerRadius(10)
-                    .padding()
-                    .onChange(of: search) { s in
-                        withAnimation {
-                            searchMedia.search = search
-                            searchMedia.loadData(search)
+                    TextField("Search", text: $search)
+                        .padding(8.5)
+                        .background(Color.gray.opacity(0.15))
+                        .cornerRadius(10)
+                        .padding()
+                        .onChange(of: search) { s in
+                            withAnimation {
+                                searchMedia.search = search
+                                searchMedia.loadData(search)
+                            }
+                            print(s)
                         }
-                        print(s)
-                    }
                 }
                 ScrollView{
                     LazyVGrid(columns: columns, spacing: 1) {

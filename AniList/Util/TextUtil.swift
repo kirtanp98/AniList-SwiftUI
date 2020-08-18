@@ -9,36 +9,6 @@ import Foundation
 import SwiftUI
 
 class TextUtility {
-    static func oldCleanDescription(_ text: String) -> Text {
-        var resultingText = Text("")
-        
-        var italics = false
-        
-        let separators = CharacterSet(charactersIn: "<>")
-        let stringArray = text.components(separatedBy: separators)
-
-        for i in 0..<stringArray.count {
-            if italics && stringArray[i] != "br" && stringArray[i] != "/i"{
-                resultingText = resultingText + Text(stringArray[i]).italic()
-                continue
-            }
-            
-            if stringArray[i] == "br" {
-                resultingText = resultingText + Text("\n")
-            }
-            else if stringArray[i] == "i" {
-                italics = true
-            }
-            else if stringArray[i] == "/i" {
-                italics = false
-            } else {
-                resultingText = resultingText + Text(stringArray[i])
-            }
-            
-        }
-        
-        return resultingText
-    }
     
     static func cleanDescription(_ text: String) -> Text {
         var resultingText = Text("")

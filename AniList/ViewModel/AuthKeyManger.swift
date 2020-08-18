@@ -16,7 +16,11 @@ class AuthKeyManager: ObservableObject {
             if !key.isEmpty {
                 loggedIn = true
                 currentAuthKey = key
+            } else {
+                currentAuthKey = nil
             }
+        } else {
+            currentAuthKey = nil
         }
     }
     

@@ -6,38 +6,54 @@
 //
 
 import SwiftUI
-//import KingfisherSwiftUI
+import KingfisherSwiftUI
 //import class Kingfisher.ImageCache
 
 struct AccountView: View {
     
     @State var cache: String = ""
     @State var showAuth = false
-    @State var code = ""
     @StateObject var authManager: AuthKeyManager
+    @ObservedObject var userManager: UserData = UserData()
     
     var body: some View {
-        VStack{
-            Text(code)
-            Button(action: {
-                print("asd")
-                showAuth.toggle()
-            }) {
-                Text("Login").padding()
+        NavigationView {
+            VStack{
+                if let user = userManager.user{
+                    ScrollView {
+                        VStack {
+                            KFImage(URL(string: user.image))
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 150, height: 150)
+                                .clipped()
+                                .shadow(radius: 5)
+                            Text(user.about)
+                            
+                        }
+                        Spacer()
+                    }
+                } else {
+                    Button(action: {
+                        showAuth.toggle()
+                    }) {
+                        Text("Login").padding()
+                    }
+                }
             }
-        }.webAuthenticationSession(isPresented: $showAuth) {
-            WebAuthenticationSession(
-                //https://anilist.co/api/v2/oauth/authorize?client_id=3923&redirect_uri=tbd://&response_type=code
-                //https://anilist.co/api/v2/oauth/authorize?client_id=3923&response_type=token
-                url: URL(string: "https://anilist.co/api/v2/oauth/authorize?client_id=3923&response_type=token")!,
-                callbackURLScheme: "tbd://"
-            ) { callbackURL, error in
-//                print("EEEEEEEEEEEEEEEE")
-                code = callbackURL!.absoluteString
-//                print(Date(timeIntervalSinceNow: TimeInterval(31536000)))
-                authManager.setCurrentAuthKey(callbackURL!.absoluteString)
+            .navigationBarTitle(userManager.user?.name ?? "")//, displayMode: .inline)
+            .webAuthenticationSession(isPresented: $showAuth) {
+                WebAuthenticationSession(
+                    //https://anilist.co/api/v2/oauth/authorize?client_id=3923&redirect_uri=tbd://&response_type=code
+                    //https://anilist.co/api/v2/oauth/authorize?client_id=3923&response_type=token
+                    url: URL(string: "https://anilist.co/api/v2/oauth/authorize?client_id=3923&response_type=token")!,
+                    callbackURLScheme: "tbd://"
+                ) { callbackURL, error in
+                    authManager.setCurrentAuthKey(callbackURL!.absoluteString)
+                    userManager.loadData()
+                }
+                .prefersEphemeralWebBrowserSession(false)
             }
-            .prefersEphemeralWebBrowserSession(false)
         }
     }
 }

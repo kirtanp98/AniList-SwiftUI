@@ -250,6 +250,21 @@ query searchMedia($page: Int, $search: String) {
     }
 }
 
+query currentUser {
+  Viewer {
+    id
+    name
+    avatar {
+      large
+    }
+    bannerImage
+    about(asHtml: true)
+    options {
+      profileColor
+    }
+  }
+}
+
 fragment mediaFragment on Media {
       id
       type

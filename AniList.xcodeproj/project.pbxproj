@@ -35,6 +35,8 @@
 		A0B5DC9A24DDAE50006CAAA3 /* MediaGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B5DC9924DDAE50006CAAA3 /* MediaGridView.swift */; };
 		A0B9C24524E9C42000BD5DF1 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B9C24424E9C42000BD5DF1 /* SearchView.swift */; };
 		A0B9C24724E9D1C500BD5DF1 /* SearchMediaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B9C24624E9D1C500BD5DF1 /* SearchMediaData.swift */; };
+		A0C855D924EB66270011F0D6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C855D824EB66270011F0D6 /* User.swift */; };
+		A0C855DC24EB6A8E0011F0D6 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C855DB24EB6A8E0011F0D6 /* UserData.swift */; };
 		A0CB184724E998A8006C5520 /* WebSessionAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CB184624E998A8006C5520 /* WebSessionAuthView.swift */; };
 		A0CD190124CCADC80008AFF6 /* ImageFromURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CD190024CCADC80008AFF6 /* ImageFromURL.swift */; };
 		A0CD190324CCAE160008AFF6 /* BannerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CD190224CCAE160008AFF6 /* BannerImageView.swift */; };
@@ -71,6 +73,8 @@
 		A0B5DC9924DDAE50006CAAA3 /* MediaGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaGridView.swift; sourceTree = "<group>"; };
 		A0B9C24424E9C42000BD5DF1 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		A0B9C24624E9D1C500BD5DF1 /* SearchMediaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMediaData.swift; sourceTree = "<group>"; };
+		A0C855D824EB66270011F0D6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A0C855DB24EB6A8E0011F0D6 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		A0CB184624E998A8006C5520 /* WebSessionAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSessionAuthView.swift; sourceTree = "<group>"; };
 		A0CD190024CCADC80008AFF6 /* ImageFromURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFromURL.swift; sourceTree = "<group>"; };
 		A0CD190224CCAE160008AFF6 /* BannerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerImageView.swift; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				A01A75FC24BD27B200D4C493 /* Media.swift */,
+				A0C855D824EB66270011F0D6 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -133,11 +138,10 @@
 		A068B3EF24C3623600377899 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				A068B3F024C3624700377899 /* MediaData.swift */,
-				A023BA6C24C372B700F8B41F /* TopMediaData.swift */,
+				A0C855DA24EB67A00011F0D6 /* Media */,
 				A0CD190024CCADC80008AFF6 /* ImageFromURL.swift */,
 				A0F3791224E9AE8900AA9E24 /* AuthKeyManger.swift */,
-				A0B9C24624E9D1C500BD5DF1 /* SearchMediaData.swift */,
+				A0C855DB24EB6A8E0011F0D6 /* UserData.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -219,6 +223,16 @@
 				A0B9C24424E9C42000BD5DF1 /* SearchView.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		A0C855DA24EB67A00011F0D6 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				A068B3F024C3624700377899 /* MediaData.swift */,
+				A023BA6C24C372B700F8B41F /* TopMediaData.swift */,
+				A0B9C24624E9D1C500BD5DF1 /* SearchMediaData.swift */,
+			);
+			path = Media;
 			sourceTree = "<group>";
 		};
 		A0CB184524E99897006C5520 /* UIKit */ = {
@@ -372,7 +386,9 @@
 				A0F3791324E9AE8900AA9E24 /* AuthKeyManger.swift in Sources */,
 				A08DF3A924BE802E007B01DF /* CoverImageView.swift in Sources */,
 				A03F8E2324E32B1B005CD7CE /* UnClippedCoverImageView.swift in Sources */,
+				A0C855D924EB66270011F0D6 /* User.swift in Sources */,
 				A0A3153A24BB9136003CE231 /* AniListApp.swift in Sources */,
+				A0C855DC24EB6A8E0011F0D6 /* UserData.swift in Sources */,
 				A0CB184724E998A8006C5520 /* WebSessionAuthView.swift in Sources */,
 				A068B3F424C3632200377899 /* MediaView.swift in Sources */,
 				A0F3791524E9B1B900AA9E24 /* KeychainWrapper.swift in Sources */,
