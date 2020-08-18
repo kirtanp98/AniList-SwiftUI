@@ -11,11 +11,20 @@ class AuthKeyManager: ObservableObject {
     @Published var currentAuthKey: String?
     @Published var loggedIn: Bool = false
     
-    func getCurrentAuthKey() -> String {
+    init() {
+        if let key = KeychainWrapper.standard.string(forKey: "authkey") {
+            if !key.isEmpty {
+                loggedIn = true
+                currentAuthKey = key
+            }
+        }
+    }
+    
+    func getCurrentAuthKey() -> String? {
         if let key = currentAuthKey {
             return key
         } else {
-            return ""
+            return nil
         }
     }
     
@@ -23,6 +32,13 @@ class AuthKeyManager: ObservableObject {
         let cleanKey = authParam.replacingOccurrences(of: "tbd://#access_token=", with: "")
         let temp = cleanKey.components(separatedBy: "&")
         currentAuthKey = temp[0]
+        KeychainWrapper.standard.set(currentAuthKey ?? "", forKey: "authkey")
+    }
+    
+    func logout() {
+        KeychainWrapper.standard.set("", forKey: "authkey")
+        loggedIn = false
+        currentAuthKey = nil
     }
     
 }
