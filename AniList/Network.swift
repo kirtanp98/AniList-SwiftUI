@@ -20,7 +20,9 @@ class Network {
       return transport
     }()
     
-    private(set) lazy var apollo = ApolloClient(url: URL(string: "https://graphql.anilist.co")!)
+    //private(set) lazy var apollo = ApolloClient(url: URL(string: "https://graphql.anilist.co")!)
+    private(set) lazy var apollo = ApolloClient(networkTransport: self.networkTransport)
+
 }
 
 extension Network: HTTPNetworkTransportPreflightDelegate {
@@ -28,29 +30,41 @@ extension Network: HTTPNetworkTransportPreflightDelegate {
   func networkTransport(_ networkTransport: HTTPNetworkTransport,
                           shouldSend request: URLRequest) -> Bool {
     // If there's an authenticated user, send the request. If not, don't.
-    if let key = KeychainWrapper.standard.string(forKey: "authkey") {
-        if !key.isEmpty {
-            return true
-        } else {
-            return false
-        }
-    }
-    return false
+    print("ASDASDASDAS","something")
+//    if let key = KeychainWrapper.standard.string(forKey: "authkey") {
+//        if !key.isEmpty {
+//            print("AITH")
+//            return true
+//        } else {
+//            print("false")
+//            return false
+//        }
+//    }
+    print("poo")
+    return true
   }
   
   func networkTransport(_ networkTransport: HTTPNetworkTransport,
                         willSend request: inout URLRequest) {
                         
     // Get the existing headers, or create new ones if they're nil
-    var headers = request.allHTTPHeaderFields ?? [String: String]()
+    // TODO:
     
-    let key = KeychainWrapper.standard.string(forKey: "authkey")
+    
+    /// This is where we handle all the authentication stuff so for later
+    
+    //
+    var headers = request.allHTTPHeaderFields ?? [String: String]()
+//
+    let key = KeychainWrapper.standard.string(forKey: "authkey") ?? ""
 
     // Add any new headers you need
-    headers["Authorization"] = "Bearer \(key!)"
-    headers["Content-Type"] = "application/json"
-    headers["Accept"] = "application/json"
-  
+    if !key.isEmpty {
+        headers["Authorization"] = "Bearer \(key)"
+        headers["Content-Type"] = "application/json"
+        headers["Accept"] = "application/json"
+    }
+
     // Re-assign the updated headers to the request.
     request.allHTTPHeaderFields = headers
     
@@ -78,11 +92,11 @@ extension Network: HTTPNetworkTransportTaskCompletedDelegate {
       print("No URL Response received!")
     }
     
-    if let data = data {
-      print("Data: \(String(describing: String(bytes: data, encoding: .utf8)))")
-    } else {
-      print("No data received!")
-    }
+//    if let data = data {
+//      print("Data: \(String(describing: String(bytes: data, encoding: .utf8)))")
+//    } else {
+//      print("No data received!")
+//    }
   }
 }
 
