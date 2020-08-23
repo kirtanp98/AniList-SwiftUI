@@ -262,6 +262,15 @@ query currentUser {
     options {
       profileColor
     }
+    statistics {
+      anime {
+        count
+      }
+      
+      manga {
+        count
+      }
+    }
   }
 }
 

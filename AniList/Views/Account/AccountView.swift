@@ -29,10 +29,21 @@ struct AccountView: View {
                                 .clipped()
                                 .shadow(radius: 5)
                             Text(user.about)
-                            
+                        
+                            HStack {
+                                VStack {
+                                    Text("Total Anime")
+                                    Text("\(user.animeCount)")
+                                }
+                                VStack {
+                                    Text("Total Manga")
+                                    Text("\(user.mangaCount)")
+                                }
+                            }
                         }
                         Spacer()
-                    }
+                        Text("\(user.id)")
+                    }.navigationBarTitle(userManager.user?.name ?? "", displayMode: .inline)
                 } else {
                     Button(action: {
                         showAuth.toggle()
@@ -41,7 +52,6 @@ struct AccountView: View {
                     }
                 }
             }
-            .navigationBarTitle(userManager.user?.name ?? "")//, displayMode: .inline)
             .webAuthenticationSession(isPresented: $showAuth) {
                 WebAuthenticationSession(
                     //https://anilist.co/api/v2/oauth/authorize?client_id=3923&redirect_uri=tbd://&response_type=code

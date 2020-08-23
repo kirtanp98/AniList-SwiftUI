@@ -14,6 +14,8 @@ struct TrendingView: View {
             ScrollView {
                 VStack {
                     
+                    //TODO: DO CURRENT SEASON ANIME, I have a image on my phone to help get current season
+                    
                     MediaScrollView(topMedia: TopMediaData(type: .anime, sort: [.trendingDesc, .popularityDesc], name: "Trending Anime"))
                     
                     MediaScrollView(topMedia: TopMediaData(type: .manga, sort: [.trendingDesc, .popularityDesc], name: "Trending Manga"))

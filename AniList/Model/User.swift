@@ -14,6 +14,8 @@ class User {
     var image: String
     var colorString: String?
     var about: String
+    var animeCount: Int
+    var mangaCount: Int
     var color: Color {
         switch colorString {
         case "blue":
@@ -31,7 +33,7 @@ class User {
         default:
             return .gray
         }
-    }//blue, purple, pink, orange, red, green, gray
+    }
     
     init(user: CurrentUserQuery.Data.Viewer){
         name = user.name
@@ -39,6 +41,8 @@ class User {
         image = user.avatar!.large ?? ""
         colorString = user.options?.profileColor
         about = user.about ?? ""
+        animeCount = user.statistics?.anime?.count ?? 0
+        mangaCount = user.statistics?.manga?.count ?? 0
     }
     
 }

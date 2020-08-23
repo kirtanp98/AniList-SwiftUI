@@ -5051,6 +5051,17 @@ public final class CurrentUserQuery: GraphQLQuery {
           __typename
           profileColor
         }
+        statistics {
+          __typename
+          anime {
+            __typename
+            count
+          }
+          manga {
+            __typename
+            count
+          }
+        }
       }
     }
     """
@@ -5101,6 +5112,7 @@ public final class CurrentUserQuery: GraphQLQuery {
           GraphQLField("bannerImage", type: .scalar(String.self)),
           GraphQLField("about", arguments: ["asHtml": true], type: .scalar(String.self)),
           GraphQLField("options", type: .object(Option.selections)),
+          GraphQLField("statistics", type: .object(Statistic.selections)),
         ]
       }
 
@@ -5110,8 +5122,8 @@ public final class CurrentUserQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(id: Int, name: String, avatar: Avatar? = nil, bannerImage: String? = nil, about: String? = nil, options: Option? = nil) {
-        self.init(unsafeResultMap: ["__typename": "User", "id": id, "name": name, "avatar": avatar.flatMap { (value: Avatar) -> ResultMap in value.resultMap }, "bannerImage": bannerImage, "about": about, "options": options.flatMap { (value: Option) -> ResultMap in value.resultMap }])
+      public init(id: Int, name: String, avatar: Avatar? = nil, bannerImage: String? = nil, about: String? = nil, options: Option? = nil, statistics: Statistic? = nil) {
+        self.init(unsafeResultMap: ["__typename": "User", "id": id, "name": name, "avatar": avatar.flatMap { (value: Avatar) -> ResultMap in value.resultMap }, "bannerImage": bannerImage, "about": about, "options": options.flatMap { (value: Option) -> ResultMap in value.resultMap }, "statistics": statistics.flatMap { (value: Statistic) -> ResultMap in value.resultMap }])
       }
 
       public var __typename: String {
@@ -5180,6 +5192,16 @@ public final class CurrentUserQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue?.resultMap, forKey: "options")
+        }
+      }
+
+      /// The users anime & manga list statistics
+      public var statistics: Statistic? {
+        get {
+          return (resultMap["statistics"] as? ResultMap).flatMap { Statistic(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "statistics")
         }
       }
 
@@ -5259,6 +5281,133 @@ public final class CurrentUserQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "profileColor")
+          }
+        }
+      }
+
+      public struct Statistic: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["UserStatisticTypes"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("anime", type: .object(Anime.selections)),
+            GraphQLField("manga", type: .object(Manga.selections)),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(anime: Anime? = nil, manga: Manga? = nil) {
+          self.init(unsafeResultMap: ["__typename": "UserStatisticTypes", "anime": anime.flatMap { (value: Anime) -> ResultMap in value.resultMap }, "manga": manga.flatMap { (value: Manga) -> ResultMap in value.resultMap }])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var anime: Anime? {
+          get {
+            return (resultMap["anime"] as? ResultMap).flatMap { Anime(unsafeResultMap: $0) }
+          }
+          set {
+            resultMap.updateValue(newValue?.resultMap, forKey: "anime")
+          }
+        }
+
+        public var manga: Manga? {
+          get {
+            return (resultMap["manga"] as? ResultMap).flatMap { Manga(unsafeResultMap: $0) }
+          }
+          set {
+            resultMap.updateValue(newValue?.resultMap, forKey: "manga")
+          }
+        }
+
+        public struct Anime: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["UserStatistics"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("count", type: .nonNull(.scalar(Int.self))),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(count: Int) {
+            self.init(unsafeResultMap: ["__typename": "UserStatistics", "count": count])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          public var count: Int {
+            get {
+              return resultMap["count"]! as! Int
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "count")
+            }
+          }
+        }
+
+        public struct Manga: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["UserStatistics"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("count", type: .nonNull(.scalar(Int.self))),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(count: Int) {
+            self.init(unsafeResultMap: ["__typename": "UserStatistics", "count": count])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          public var count: Int {
+            get {
+              return resultMap["count"]! as! Int
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "count")
+            }
           }
         }
       }
